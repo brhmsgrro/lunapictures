@@ -1,0 +1,19 @@
+
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “alt-php44” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-alt-php44___lsphp .php .php4 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
+
+
+<FilesMatch "\.(css|js|ico|pdf|flv|webp|jpg|jpeg|png|gif|swf|mp3|mp4)$">
+Header set Cache-Control: "public, max-age=31536000"
+Header set Expires "Thu, 15 May 2025 23:00:00 GMT"
+</FilesMatch>
+
+<FilesMatch "\.(css|js|ico|pdf|jpg|webp|jpeg|png|gif|php|woff|svg|ttf)$">
+SetOutputFilter DEFLATE
+</FilesMatch>
+
