@@ -134,7 +134,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="revision" href="/home" />
 
 
-<title> ▷ Mi experiencia en un multinivel | El diario de un emprendedor: Blog entrepreneur </title>
+<title> ▷ Mi experiencia en un GRAN multinivel | El diario de un emprendedor: Blog entrepreneur </title>
  
 	<!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400, 900" rel="stylesheet"> -->
 	
