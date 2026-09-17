@@ -223,7 +223,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="col-md-8 col-md-offset-1 heading animate-box" data-animate-effect="fadeIn">
           <h3 class="" style="text-align:left;">El diario de un emprendedor:</h3>
           
-          <h1 class="heading-colored" style="text-align:left;"> Mi experiencia en un multinivel</h1>
+          <h1 class="heading-colored" style="text-align:left;"> Mi experiencia en un GRAN multinivel</h1>
           
           
         </div>
