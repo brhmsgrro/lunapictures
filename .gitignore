@@ -2,3 +2,5 @@
 *.mp4
 *.zip
 error_log
+ftpsync.settings
+.ftpsync/
