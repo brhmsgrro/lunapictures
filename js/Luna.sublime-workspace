@@ -1,0 +1,520 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"di",
+				"div\tTag"
+			],
+			[
+				"in",
+				"input\tTag"
+			],
+			[
+				"ac",
+				"action\tAttr"
+			],
+			[
+				"obj",
+				"objDetalle"
+			],
+			[
+				"is",
+				"is_a"
+			],
+			[
+				"margin",
+				"margin-top\tproperty"
+			],
+			[
+				"for",
+				"foreach\tforeach …"
+			],
+			[
+				"incl",
+				"ps_include_file"
+			],
+			[
+				"include",
+				"get_include_path"
+			],
+			[
+				"aud",
+				"audiovisual"
+			],
+			[
+				"hi",
+				"hidden"
+			],
+			[
+				"empre",
+				"emprendedores"
+			],
+			[
+				"mar",
+				"Marketing"
+			],
+			[
+				"au",
+				"audiovisual"
+			],
+			[
+				"images",
+				"images"
+			],
+			[
+				"png",
+				"png"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/phpinfo.php",
+			"settings":
+			{
+				"buffer_size": 65,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"pakege contro",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: i",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 157.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/phpinfo.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/js/Luna.sublime-project",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Dashboard/detallePedido.php",
+		"/C/Users/alv58/AppData/Roaming/Sublime Text 3/Packages/User/Xdebug.sublime-settings",
+		"/C/Users/alv58/AppData/Roaming/Sublime Text 3/Packages/Xdebug Client/Xdebug.sublime-settings",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Vistas/Pago.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/DAO/MetodosAdmin.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/DAO/MetodosDAO.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/BEANS/DetallePedido.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/BEANS/Cliente.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/BEANS/Producto.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/BEANS/Pedido.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Vistas/Registro.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Vistas/Catalogo.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/sitemap.xml",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Termina-tu-tesis-audiovisual-produccion-gdl.php",
+		"/C/Users/alv58/Downloads/Registroexpe.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Vistas/Valida.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Vistas/Registro2.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Vistas/Cesta.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Utils/ConexionDB.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/index.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/el-diario-de-un emprendedor-blog-historias-sobre-emprender.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Mercadólogo-VS-lic.-en-MKT-el-coste-de-oportunidad.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/aside.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/transmedia-y-postmodernismo.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/mi-experiencia-en-un-multinivel.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/negocio-familiar-pros-y-contras.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/dibujar-para-vender-siempre-necesitaras-marketing-para-venderlo.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/css/style.css",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/css/bootstrap.css",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/js/main.js",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/menu-dropdown.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/menu.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/fotografia-de-producto-y-produccion-audiovisual-para-pymes.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Dashboard/Mantenimiento.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/sftp-config-alt.json",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/sftp-config.json",
+		"/C/Users/alv58/AppData/Roaming/Sublime Text 3/Packages/User/sftp_servers/sftp-config.json",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/sftp-config.json",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/presidium-cortometraje-ficg-2020.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/.htaccess",
+		"/C/Users/alv58/AppData/Roaming/Sublime Text 3/Packages/User/SFTP.sublime-settings",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Vistas/Detalle.php",
+		"/C/Users/alv58/AppData/Roaming/Sublime Text 3/Packages/User/auto_save.sublime-settings",
+		"/C/Users/alv58/AppData/Roaming/Sublime Text 3/Packages/LiveReload/LiveReload.sublime-settings",
+		"/C/Users/alv58/AppData/Roaming/Sublime Text 3/Packages/auto-save/Default (Windows).sublime-keymap",
+		"/C/Users/alv58/AppData/Roaming/Sublime Text 3/Packages/auto-save/auto_save.sublime-settings",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/www/acting.html",
+		"/C/Users/alv58/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Vistas/menutienda.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/enviar.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Dashboard/clientes.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Vistas/CerrarSesionTienda.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Dashboard/Productos.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Dashboard/Login.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Dashboard/Pedidos.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Dashboard/Cerrar.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/DAO/TiendaDAO.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/regalos-para-cinefilos.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Dashboard/Formulario.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Dashboard/Valida.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/enviar-newsletter.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/dirs.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/probarconexion.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Utils/conexionDB.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/todo-es-marketing-el-podcast-estrategias-de-mercadeo-con-luna-villares-abraham.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/global/config.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/global/conexion.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/direccion-de-arte-para-tu-cortometraje-Cine-independiente-en-guadalajara.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/js/lazysizes.min.js",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/todo-es-marketing-EL-BLOG-podcast-MEDIOS-audiovisuales-gdl.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/curso-de-actuacion-para-cine-video-y-television-en-gdl.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/calificar-negociofamiliar.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/calificar-mercadolgovslic.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/calificar-multinivel.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/contac-newsletter.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/foro-de-grabacion-estudio-cine-gdl.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/grabacion-de-audio-directo-para-tu-cortometraje-gdl-jal.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Fabricacion-de-decorados-para-cine-en-guadalajara-jal.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/contac-servicios.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/enviar-servicios.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/enviar-networking.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/como-hacer-cortometraje-el-crew-cinematografico.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/enviar-acting.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/insertar.php",
+		"/C/Users/alv58/OneDrive/Escritorio/login/index.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/add_rate.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/calificar.php",
+		"/C/Users/alv58/OneDrive/Escritorio/ajax/index.php",
+		"/C/Users/alv58/OneDrive/Escritorio/ajax/insertar.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/js/jquery.rating.pack.js",
+		"/C/Users/alv58/OneDrive/Escritorio/star-rating/js/jquery.rating.pack.js",
+		"/C/Users/alv58/OneDrive/Escritorio/star-rating/css/styles.css",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/sass/style.scss",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/rating.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/dbConfig.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/footer.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/enviar-contato.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/enviado.php",
+		"/C/Users/alv58/AppData/Roaming/Sublime Text 3/Packages/User/SFTP.errors.log",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/servicios.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/js/app.js",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/index.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/justice/index.html",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/justice/css/style.css",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/assets/css/main.css",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/css/main.css",
+		"/C/Users/alv58/OneDrive/Escritorio/respaldo web/public_html/assets/css/main.css",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/css/icomoon.css",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/css/icomoon.min.css",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/PHP-Quick-Menu-1.0.0/BootstrapMenu.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/PHP-Quick-Menu-1.0.0/ejemplo1.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/PHP-Quick-Menu-1.0.0/QuickMenu.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/fotografia-de-producto-y-produccion-audiovisual-para-pymes.html",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/regalos-para-cinefilos.html",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Mercadólogo-VS-lic.-en-MKT-el-coste-de-oportunidad.html",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/todo-es-marketing-EL-BLOG-podcast-MEDIOS-audiovisuales-gdl.html",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/mi-experiencia-en-un-multinivel.html",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/como-hacer-cortometraje-el-crew-cinematografico.html",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/curso-de-actuacion-para-cine-video-y-television-en-gdl.html",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/grabacion-de-audio-directo-para-tu-cortometraje-gdl-jal.html",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/foro-de-grabacion-estudio-cine-gdl.html",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Termina-tu-tesis-audiovisual-produccion-gdl.html",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Fabricacion-de-decorados-para-cine-en-guadalajara-jal.html",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/direccion-de-arte-para-tu-cortometraje-Cine-independiente-en-guadalajara.html",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/css/magnific-popup.min.css",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/css/bootstrap.min.css"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 106.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			">\n",
+			"oportunida",
+			"igital",
+			"dropdonw",
+			"dropdown menu",
+			"gtco offcanvas",
+			"gtco off canvas",
+			"back drop",
+			"grid",
+			" </tr>",
+			"{\n",
+			"  \n",
+			"}\n",
+			"\t\t\t\t\t\t\t\n",
+			"<!",
+			"promociona tus productos de manera unica como en los infomerciales, haz tu propio comercial",
+			"#585858"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/phpinfo.php",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 65,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								65,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 41.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 126.0
+	},
+	"pinned_build_system": "",
+	"project": "Luna.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"public_html\\add_rate.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"xdebug":
+		{
+			"hide_conflict": false
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 429.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
