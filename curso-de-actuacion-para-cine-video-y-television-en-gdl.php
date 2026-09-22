@@ -1,358 +1,238 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE HTML>
+<html lang="es-MX">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Seminario de Actuación Ante Cámara en Guadalajara | Cortometraje + Demo Reel | Luna Pictures</title>
+  <title>Seminario de Actuación Ante Cámara | Luna Pictures</title>
+  <meta name="description" content="Seminario intensivo de actuación cinematográfica en Guadalajara. Grabación de cortometraje y demo reel. Inicio 9 de enero 2027. Cupo limitado." />
 
-  <meta name="description" content="Vive la experiencia de actuar frente a cámara. Seminario intensivo de actuación cinematográfica en Guadalajara con grabación de cortometraje y material para demo reel. Inicio 18 de julio 2026. Cupo limitado." />
-
-  <meta name="keywords" content="curso de actuación Guadalajara, actuación ante cámara, actuación cinematográfica, taller de actuación GDL, curso de actuación para cine, demo reel actores, actuación para cortometraje, acting para cámara" />
-
+  <!-- Open Graph & Twitter -->
   <meta property="og:title" content="Seminario de Actuación Ante Cámara | Luna Pictures" />
-  <meta property="og:description" content="Conviértete en protagonista de un cortometraje cinematográfico. Inicio 18 de julio 2026." />
+  <meta property="og:description" content="Conviértete en protagonista de un cortometraje cinematográfico. Inicio 9 de enero 2027." />
   <meta property="og:image" content="https://lunapictures.com.mx/images/curso-de-actuacion-gdl-background.jpg" />
-
-    <meta name="author" content="[by luna villares]">
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://lunapictures.com.mx/curso-de-actuacion-para-cine-video-y-television-en-gdl.php" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://lunapictures.com.mx/images/curso-de-actuacion-gdl-background.jpg">
 
-  <!-- Video CORRECTO -->
-<meta property="og:video:src" content="https://www.youtube.com/watch?v=MWNjKploZSg">
-<meta property="og:video:type" content="video/mp4">
+  <!-- Favicon -->
+  <link rel="icon" href="/images/luna pictures audiovisual.ico" type="image/x-icon">
 
- <!-- TWITTER / X CARD OPTIMIZADA -->
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KGPD9VF');</script>
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@PelisConMensaje">
-<meta name="twitter:creator" content="@PelisConMensaje">
-<meta name="twitter:title" content="Seminario de Actuación Ante Cámara en Guadalajara | Luna Pictures">
-<meta name="twitter:description" content="Vive la experiencia de protagonizar un cortometraje cinematográfico. Seminario intensivo de actuación ante cámara con demo reel, escenas grabadas y formación audiovisual. Inicio 18 de julio 2026.">
-<meta name="twitter:image" content="https://lunapictures.com.mx/images/curso-de-actuacion-gdl-background.jpg">
-<meta name="twitter:image:alt" content="Seminario de actuación cinematográfica de Luna Pictures en Guadalajara">
-<meta name="twitter:url" content="https://lunapictures.com.mx/curso-de-actuacion-para-cine-video-y-television-en-gdl.php">
-
-
+  <!-- Fuente Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 
-  <link rel="icon" href="images/luna pictures audiovisual.ico" type="images/luna pictures audiovisual.icon" />
-<link rel="revision" href="/home" />
-
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Course",
-    "name": "Seminario de Actuación Ante Cámara",
-    "description": "Seminario intensivo de actuación cinematográfica con cortometraje final y demo reel.",
-    "provider": {
-      "@type": "Organization",
-      "name": "Luna Pictures",
-      "url": "https://lunapictures.com.mx"
-    },
-    "startDate": "2026-07-18",
-    "endDate": "2026-10-10",
-    "courseMode": "Presencial",
-    "location": {
-      "@type": "Place",
-      "name": "Guadalajara / Zapopan"
-    }
-  }
-  </script>
-
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    /* RESET Y BASE */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', sans-serif;
       background: #0d0d0d;
       color: #f5f5f5;
       line-height: 1.6;
+      overflow-x: hidden;
     }
+    a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+    .container { width: 90%; max-width: 1100px; margin: auto; }
 
-    a {
-      text-decoration: none;
+    /* HEADER MINIMALISTA (Sin menú corporativo) */
+    .landing-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 25px 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: auto;
+    .landing-logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.5px;
     }
+    .landing-logo span { color: #c41e3a; }
+    .back-to-site {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 8px 16px;
+      border-radius: 20px;
+    }
+    .back-to-site:hover { color: #fff; border-color: #fff; }
 
+    /* HERO */
     .hero {
       min-height: 100vh;
-      background:
-        linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.8)),
-        url('https://lunapictures.com.mx/images/curso-de-actuacion-gdl-background.jpg') center/cover;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.85)), url('https://lunapictures.com.mx/images/curso-de-actuacion-gdl-background.jpg') center/cover no-repeat;
+      display: flex;
       align-items: center;
       text-align: center;
+      padding-top: 80px;
     }
-
-    .hero-content {
-      width: 100%;
-    }
-
     .hero h1 {
-      font-size: 4rem;
+      font-size: 3.5rem;
       line-height: 1.1;
       margin-bottom: 20px;
       font-weight: 800;
+      color: #ffffff;
     }
-
     .hero p {
-      font-size: 1.3rem;
-      max-width: 800px;
-      margin: auto;
-      margin-bottom: 35px;
+      font-size: 1.25rem;
+      max-width: 750px;
+      margin: 0 auto 35px auto;
       color: #d4d4d4;
     }
-
     .hero-info {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 15px;
       flex-wrap: wrap;
-      margin-bottom: 35px;
+      margin-bottom: 40px;
     }
-
     .hero-info span {
-      background: rgba(255,255,255,.08);
-      padding: 10px 18px;
-      border-radius: 30px;
-      font-size: .95rem;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 500;
     }
-
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 15px 28px;
-      border-radius: 40px;
+    .btn-landing {
+      padding: 16px 32px;
+      border-radius: 50px;
       font-weight: 700;
-      transition: .3s ease;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: inline-block;
+      cursor: pointer;
     }
-
     .btn-primary {
       background: #ffffff;
-      color: #000;
+      color: #0d0d0d;
+      border: 2px solid #ffffff;
     }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-    }
-
+    .btn-primary:hover { background: transparent; color: #ffffff; transform: translateY(-3px); }
     .btn-secondary {
-      border: 1px solid rgba(255,255,255,.3);
-      color: #fff;
+      background: transparent;
+      border: 2px solid rgba(255,255,255,0.4);
+      color: #ffffff;
+      margin-left: 15px;
     }
+    .btn-secondary:hover { border-color: #ffffff; background: rgba(255,255,255,0.1); transform: translateY(-3px); }
 
-    section {
-      padding: 90px 0;
-    }
+    /* SECCIONES */
+    section { padding: 80px 0; }
+    .highlight { background: #141414; }
+    .section-title { font-size: 2.5rem; margin-bottom: 20px; text-align: center; font-weight: 800; color: #ffffff; }
+    .section-subtitle { text-align: center; max-width: 700px; margin: 0 auto 50px auto; color: #a0a0a0; font-size: 1.1rem; }
 
-    .section-title {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      text-align: center;
-      font-weight: 800;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      max-width: 800px;
-      margin: auto;
-      color: #cfcfcf;
-      margin-bottom: 60px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 25px;
-    }
-
+    /* GRID Y CARDS */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
     .card {
-      background: #171717;
-      border-radius: 24px;
-      padding: 30px;
-      border: 1px solid rgba(255,255,255,.06);
+      background: #1a1a1a;
+      border-radius: 20px;
+      padding: 35px 30px;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: transform 0.3s ease;
     }
+    .card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.2); }
+    .card h3 { margin-bottom: 15px; font-size: 1.3rem; color: #ffffff; }
+    .card p { color: #b0b0b0; }
 
-    .card h3 {
-      margin-bottom: 15px;
-      font-size: 1.3rem;
-    }
-
-    .card p {
-      color: #c7c7c7;
-    }
-
-    .highlight {
-      background: linear-gradient(135deg, #1c1c1c, #101010);
-    }
-
-    .features ul {
-      list-style: none;
-      max-width: 800px;
-      margin: auto;
-    }
-
+    /* FEATURES */
+    .features ul { list-style: none; max-width: 800px; margin: 0 auto; }
     .features li {
-      background: #171717;
+      background: #1a1a1a;
       margin-bottom: 15px;
-      padding: 18px 22px;
-      border-radius: 16px;
-      color: #e8e8e8;
+      padding: 20px 25px;
+      border-radius: 12px;
+      color: #e0e0e0;
+      font-size: 1.05rem;
+      border-left: 3px solid #c41e3a;
     }
 
-    .pricing {
-      text-align: center;
-    }
-
+    /* PRICING */
+    .pricing { text-align: center; }
     .price-box {
-      background: #171717;
+      background: #1a1a1a;
       border-radius: 30px;
       max-width: 500px;
-      margin: auto;
-      padding: 50px 35px;
+      margin: 0 auto;
+      padding: 50px 40px;
+      border: 1px solid rgba(255,255,255,0.1);
     }
+    .price { font-size: 4.5rem; font-weight: 800; margin: 15px 0; color: #ffffff; line-height: 1; }
+    .small { color: #a0a0a0; font-size: 0.95rem; margin-bottom: 5px; }
 
-    .price {
-      font-size: 4rem;
-      font-weight: 800;
-      margin: 15px 0;
+    /* FORMULARIO (Enfocado en conversión) */
+    #form-section { background: #0d0d0d; border-top: 1px solid rgba(255,255,255,0.05); }
+    .form-wrapper {
+      background: #1a1a1a;
+      padding: 40px;
+      border-radius: 24px;
+      max-width: 600px;
+      margin: 0 auto;
+      border: 1px solid rgba(255,255,255,0.1);
     }
-
-    .small {
-      color: #c7c7c7;
-      font-size: .95rem;
-    }
-
-    .faq-item {
-      background: #171717;
-      padding: 25px;
-      border-radius: 20px;
-      margin-bottom: 20px;
-    }
-
-    .faq-item h4 {
-      margin-bottom: 10px;
-    }
-
-    #gtco-contact .form-control{
-    height: 58px;
-    border-radius: 18px;
-    border: 1px solid rgba(255,255,255,.08);
-    background: #171717;
-    color: #fff;
-    font-size: 16px;
-    padding: 15px 20px;
-    box-shadow: none;
-}
-
-#gtco-contact textarea.form-control{
-    height: 180px;
-    resize: none;
-    padding-top: 18px;
-}
-
-#gtco-contact .form-group{
-    margin-bottom: 22px;
-}
-
-#gtco-contact .btn-primary{
-    width: 100%;
-    height: 60px;
-    border-radius: 50px;
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    background: #ffffff;
-    color: #000;
-    border: none;
-    transition: .3s ease;
-}
-
-#gtco-contact .btn-primary:hover{
-    transform: translateY(-2px);
-}
-
-#gtco-contact .heading h1{
-    font-size: 52px;
-    margin-bottom: 20px;
-}
-
-#gtco-contact .sub{
-    font-size: 18px;
-    line-height: 1.7;
-    color: #cfcfcf;
-}
-
-#gtco-contact .subtle-text{
-    font-size: 80px;
-    opacity: .04;
-    font-weight: 800;
-    letter-spacing: 4px;
-}
-
-@media(max-width:768px){
-
-    #gtco-contact .heading h1{
-        font-size: 34px;
-    }
-
-    #gtco-contact .subtle-text{
-        font-size: 42px;
-    }
-
-
-
-#gtco-contact .animate-box{
-    float: none;
-    margin: auto;
-}
-}
-
-    form {
-      max-width: 700px;
-      margin: auto;
-      display: grid;
-      gap: 20px;
-    }
-
-    input,
-    textarea {
-      padding: 18px;
-      border-radius: 14px;
-      border: none;
-      background: #171717;
-      color: #fff;
+    .form-group { margin-bottom: 20px; }
+    .form-control {
+      width: 100%;
+      height: 55px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: #0d0d0d;
+      color: #ffffff;
       font-size: 1rem;
+      padding: 15px 20px;
+      transition: border-color 0.3s ease;
     }
+    .form-control:focus { border-color: #c41e3a; outline: none; background: #141414; }
+    textarea.form-control { height: 120px; resize: none; padding-top: 15px; }
+    .btn-submit {
+      width: 100%;
+      height: 60px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: #c41e3a;
+      color: #ffffff;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+    .btn-submit:hover { background: #a01830; transform: translateY(-2px); }
 
-    footer {
+    /* FOOTER MINIMALISTA */
+    .landing-footer {
       padding: 40px 0;
       text-align: center;
-      color: #9a9a9a;
-      border-top: 1px solid rgba(255,255,255,.06);
+      color: #666;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      background: #0d0d0d;
+      font-size: 0.85rem;
     }
 
-    .whatsapp {
+    /* WHATSAPP FLOTANTE */
+    .whatsapp-float {
       position: fixed;
-      bottom: 25px;
-      right: 25px;
+      bottom: 30px;
+      right: 30px;
       background: #25D366;
       color: white;
       width: 65px;
@@ -362,456 +242,197 @@
       align-items: center;
       justify-content: center;
       font-size: 2rem;
-      z-index: 999;
-      box-shadow: 0 10px 30px rgba(0,0,0,.3);
+      z-index: 9999;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
     }
+    .whatsapp-float:hover { transform: scale(1.1); }
 
-    @media(max-width:768px){
-      .hero h1 {
-        font-size: 2.6rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-
-      .section-title {
-        font-size: 2rem;
-      }
+    /* RESPONSIVE */
+    @media(max-width: 768px) {
+      .hero { min-height: auto; padding: 120px 0 60px 0; }
+      .hero h1 { font-size: 2.2rem; }
+      .hero p { font-size: 1rem; }
+      .section-title { font-size: 1.8rem; }
+      .price { font-size: 3.5rem; }
+      .btn-secondary { margin-left: 0; margin-top: 15px; display: block; width: 100%; }
+      .btn-primary { display: block; width: 100%; }
+      .form-wrapper { padding: 25px; }
     }
   </style>
-
-
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KGPD9VF');</script>
-<!-- End Google Tag Manager -->
-
-
-<!-- Facebook Pixel Code -->
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '2310533659183574');
-  fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=2310533659183574&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Facebook Pixel Code -->
-
-
-
-
-
-
-
-
 </head>
+
 <body>
-
   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KGPD9VF"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KGPD9VF" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
+  <!-- HEADER MINIMALISTA (Sin distracciones) -->
+  <header class="landing-header container">
+    <a href="https://lunapictures.com.mx" class="landing-logo">LUNA <span>PICTURES</span></a>
+    
+  </header>
+
+  <!-- HERO -->
   <section class="hero">
-    <div class="container hero-content">
+    <div class="container">
       <h1>SEMINARIO DE ACTUACIÓN ANTE CÁMARA</h1>
-
-      <p>
-        Vive la experiencia de protagonizar un cortometraje cinematográfico.
-        Aprende actuación frente a cámara en un entorno creativo, emocional y profesional.
-      </p>
+      <p>Vive la experiencia de protagonizar un cortometraje cinematográfico. Aprende actuación frente a cámara en un entorno creativo, emocional y profesional.</p>
 
       <div class="hero-info">
         <span>📍 Guadalajara / Zapopan</span>
         <span>📅 Inicio: 9 de Enero 2027</span>
-        <span>⏱️ Duracion: 3 meses </span>
+        <span>⏱️ Duración: 3 meses</span>
         <span>🎬 Incluye Demo Reel</span>
-        <span>⚠️ Cupo limitado</span>
       </div>
 
-      <div class="buttons">
-        <a href="https://wa.me/523331970604" class="btn btn-primary">APARTAR LUGAR</a>
-        <a href="#info" class="btn btn-secondary">VER INFORMACIÓN</a>
+      <div>
+        <a href="#form-section" class="btn-landing btn-primary">Apartar mi lugar</a>
+        <a href="#info" class="btn-landing btn-secondary">Ver información</a>
       </div>
     </div>
   </section>
 
+  <!-- VIDEO -->
   <section class="highlight">
     <div class="container">
       <h2 class="section-title">Conoce el universo de Luna Pictures</h2>
+      <p class="section-subtitle">Mira algunos de los proyectos audiovisuales y producciones cinematográficas realizadas por nosotros.</p>
 
-      <p class="section-subtitle">
-        Mira algunos de los proyectos audiovisuales, videoclips y producciones cinematográficas realizadas por Luna Pictures.
-      </p>
-
-      <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:30px; margin-bottom:40px;">
-        <iframe 
-          src="https://www.youtube.com/embed/z_bUX2wfdpU"
-          title="Showreel Luna Pictures"
-          frameborder="0"
-          allowfullscreen
-          style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:30px;">
-        </iframe>
-      </div>
-
-      <div class="grid">
-        <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1200&auto=format&fit=crop" style="width:100%; border-radius:24px; height:320px; object-fit:cover;">
-
-        <img src="https://images.unsplash.com/photo-1503095396549-807759245b35?q=80&w=1200&auto=format&fit=crop" style="width:100%; border-radius:24px; height:320px; object-fit:cover;">
-
-        <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=1200&auto=format&fit=crop" style="width:100%; border-radius:24px; height:320px; object-fit:cover;">
+      <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:20px; margin-bottom:40px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+        <iframe src="https://www.youtube.com/embed/z_bUX2wfdpU" title="Showreel Luna Pictures" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute; top:0; left:0; width:100%; height:100%; border-radius:20px;"></iframe>
       </div>
     </div>
   </section>
 
+  <!-- INFO -->
   <section id="info">
     <div class="container">
       <h2 class="section-title">Una experiencia cinematográfica real</h2>
-
-      <p class="section-subtitle">
-        Este seminario está diseñado para personas que desean explorar su lado artístico,
-        mejorar su presencia frente a cámara y participar en una producción audiovisual real.
-      </p>
+      <p class="section-subtitle">Diseñado para personas que desean explorar su lado artístico y participar en una producción audiovisual real.</p>
 
       <div class="grid">
         <div class="card">
           <h3>🎥 Actuación Cinematográfica</h3>
-          <p>Aprende técnicas modernas de actuación para cine, video y contenido audiovisual.</p>
+          <p>Aprende técnicas modernas de actuación para cine y video con directores en activo.</p>
         </div>
-
         <div class="card">
           <h3>🎬 Cortometraje Final</h3>
-          <p>Todos los participantes formarán parte de un cortometraje producido por Luna Pictures.</p>
+          <p>Todos los participantes formarán parte del elenco de un cortometraje producido por Luna Pictures.</p>
         </div>
-
         <div class="card">
-          <h3>📸 Demo Reel</h3>
-          <p>Obtén escenas grabadas profesionalmente para usar en castings y redes sociales.</p>
+          <h3>📸 Demo Reel Profesional</h3>
+          <p>Obtén escenas grabadas y editadas profesionalmente para usar en tus próximos castings.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section>
+  <!-- FEATURES -->
+  <section class="highlight">
     <div class="container">
-      <h2 class="section-title">Mensaje del Director del Seminario</h2>
-
-      <p class="section-subtitle">
-        Conoce
-
+      <h2 class="section-title">¿Qué incluye el seminario?</h2>
       <div class="features">
         <ul>
-          <li>✅ Entrenamiento actoral frente a cámara</li>
-          <li>✅ Ejercicios cinematográficos prácticos</li>
-          <li>✅ Construcción de personaje</li>
-          <li>✅ Escenas grabadas profesionalmente</li>
-          <li>✅ Participación en cortometraje final</li>
-          <li>✅ Material para demo reel</li>
-          <li>✅ Feedback personalizado</li>
-          <li>✅ Networking creativo</li>
-          <li>✅ Certificado de participación</li>
+          <li>✅ Entrenamiento actoral específico frente a cámara</li>
+          <li>✅ Construcción de personaje y análisis de guion</li>
+          <li>✅ Escenas grabadas profesionalmente con equipo de cine</li>
+          <li>✅ Material editado listo para tu demo reel</li>
+          <li>✅ Certificado de participación por Luna Pictures</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section>
-    <div class="container">
-      <h2 class="section-title">¿Para quién es este seminario?</h2>
-
-      <div class="grid">
-        <div class="card">
-          <h3>✨ Creativos</h3>
-          <p>Personas que desean explorar una nueva forma de expresión artística.</p>
-        </div>
-
-        <div class="card">
-          <h3>📱 Creadores de Contenido</h3>
-          <p>Mejora tu presencia frente a cámara y desarrolla mayor naturalidad audiovisual.</p>
-        </div>
-
-        <div class="card">
-          <h3>🎭 Principiantes</h3>
-          <p>No necesitas experiencia previa para participar.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="highlight">
-    <div class="container">
-      <h2 class="section-title">Plan de Estudios</h2>
-
-      <div class="grid">
-        <div class="card">
-          <h3>Mes 1</h3>
-          <p>Presencia, naturalidad, escucha emocional y desbloqueo frente a cámara.</p>
-        </div>
-
-        <div class="card">
-          <h3>Mes 2</h3>
-          <p>Construcción de personaje, escenas cinematográficas y lenguaje audiovisual.</p>
-        </div>
-
-        <div class="card">
-          <h3>Mes 3</h3>
-          <p>Ensayos, preparación y grabación del cortometraje final.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  <!-- PRECIOS -->
   <section>
     <div class="container pricing">
       <h2 class="section-title">Inversión</h2>
-
       <div class="price-box">
-        <p>PREVENTA</p>
+        <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: #ffffff;">Precio Preventa</p>
         <div class="price">$1,350</div>
-        <p>mensuales</p>
-
-        <br>
-
+        <p style="font-size: 1.2rem; color: #ffffff; margin-bottom: 20px;">mensuales</p>
         <p class="small">Precio regular: $1,750 mensuales</p>
-        <p class="small">Aparta tu lugar con el 50% el resto al iniciar. </p>
-        <p class="small">Cupo limitado a 15 participantes</p>
-
-        <br><br>
-
-        <a href="https://wa.me/523331970604" class="btn btn-primary">QUIERO APARTAR MI LUGAR</a>
+        <p class="small">Aparta tu lugar con el 50% de anticipo.</p>
+        <p class="small" style="color: #ffffff; font-weight: 600; margin-top: 15px;">⚠️ Cupo limitado a 15 participantes</p>
+        <br>
+        <a href="#form-section" class="btn-landing btn-primary" style="width: 100%; text-align: center;">QUIERO APARTAR MI LUGAR</a>
       </div>
     </div>
   </section>
 
-  <section class="highlight">
+  <!-- FORMULARIO (El objetivo final de la Landing) -->
+  <section id="form-section">
     <div class="container">
-      <h2 class="section-title">Preguntas Frecuentes</h2>
+      <h2 class="section-title">Aplica al Seminario</h2>
+      <p class="section-subtitle">Queremos conocerte. Completa el formulario y nos pondremos en contacto contigo para reservar tu lugar.</p>
 
-      <div class="faq-item">
-        <h4>¿Necesito experiencia previa?</h4>
-        <p>No. El seminario está diseñado tanto para principiantes como para creativos emergentes.</p>
-      </div>
-
-      <div class="faq-item">
-        <h4>¿Qué edad debo tener?</h4>
-        <p>El seminario está dirigido a dos grupos a  1- personas de 18 a 25 años. 2- personas de 30 a 45 años</p>
-      </div>
-
-      <div class="faq-item">
-        <h4>¿Se entrega material grabado?</h4>
-        <p>Sí. Los participantes recibirán escenas seleccionadas para demo reel y redes.</p>
-      </div>
-
-      <div class="faq-item">
-        <h4>¿Dónde se realizará?</h4>
-        <p>En una zona céntrica de Guadalajara / Zapopan.</p>
+      <div class="form-wrapper">
+        <form id="seminarioForm">
+          <div class="form-group">
+            <input name="nombre" type="text" class="form-control" placeholder="Nombre completo" required>
+          </div>
+          <div class="form-group">
+            <input name="edad" type="number" class="form-control" placeholder="Edad" required>
+          </div>
+          <div class="form-group">
+            <input name="whatsapp" type="text" class="form-control" placeholder="Número de WhatsApp" required>
+          </div>
+          <div class="form-group">
+            <input name="email" type="email" class="form-control" placeholder="Correo electrónico" required>
+          </div>
+          <div class="form-group">
+            <textarea name="mensaje" class="form-control" placeholder="Cuéntanos brevemente por qué quieres formar parte..." required></textarea>
+          </div>
+          <input type="hidden" name="website" style="display:none;">
+          
+          <button type="submit" class="btn-submit" id="btn-seminario">SOLICITAR INFORMACIÓN</button>
+        </form>
       </div>
     </div>
   </section>
 
- <section id="gtco-contact" data-section="contact">
-
-<div class="container">
-
-<div class="row row-pb-md">
-<div class="col-md-8 col-md-offset-2 heading animate-box">
-
-<h1>Aplica al Seminario</h1>
-
-<p class="sub">
-Queremos conocerte y saber por qué deseas formar parte de esta experiencia cinematográfica.
-</p>
-
-<p class="subtle-text">
-CUPOS LIMITADOS
-</p>
-
-</div>
-</div>
-
-<div class="row">
-
-<div class="col-md-8 col-md-offset-2 animate-box">
-
-<form id="seminarioForm">
-
-<div class="form-group">
-<input
-name="nombre"
-type="text"
-class="form-control"
-placeholder="Nombre completo"
-id="seminario_nombre"
-required>
-</div>
-
-<div class="form-group">
-<input
-name="edad"
-type="number"
-class="form-control"
-placeholder="Edad"
-id="seminario_edad"
-required>
-</div>
-
-<div class="form-group">
-<input
-name="whatsapp"
-type="text"
-class="form-control"
-placeholder="WhatsApp"
-id="seminario_whatsapp"
-required>
-</div>
-
-<div class="form-group">
-<input
-name="instagram"
-type="text"
-class="form-control"
-placeholder="Instagram"
-id="seminario_instagram">
-</div>
-
-<div class="form-group">
-<input
-name="email"
-type="email"
-class="form-control"
-placeholder="Correo electrónico"
-id="seminario_email">
-</div>
-
-<div class="form-group">
-<textarea
-name="mensaje"
-id="seminario_mensaje"
-class="form-control"
-cols="30"
-rows="7"
-placeholder="Cuéntanos por qué quieres formar parte del seminario"
-required></textarea>
-</div>
-
-<input type="hidden" name="website">
-
-<div class="form-group text-center">
-
-<button
-type="submit"
-class="btn btn-primary btn-lg"
-id="btn-seminario">
-
-SOLICITAR INFORMACIÓN
-
-</button>
-
-</div>
-
-</form>
-
-</div>
-</div>
-</div>
-</section>
-
-  <footer>
+  <!-- FOOTER MINIMALISTA -->
+  <footer class="landing-footer">
     <div class="container">
-      <p>© 2026 Luna Pictures — Seminario de Actuación Ante Cámara</p>
+      <p>© 2026 Luna Pictures. Todos los derechos reservados.</p>
+      <p style="margin-top: 10px; opacity: 0.6;">Este sitio no forma parte del sitio web de Facebook o Facebook Inc. Además, este sitio no está respaldado por Facebook de ninguna manera.</p>
     </div>
   </footer>
 
-  <a href="https://wa.me/523331970604" class="whatsapp">
+  <!-- Botón Flotante de WhatsApp -->
+  <a href="https://wa.me/523331970604?text=Hola,%20tengo%20una%20duda%20sobre%20el%20Seminario%20de%20Actuación" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
     💬
   </a>
 
-<!-- jQuery -->
-  <script  src="js/jquery.min.js"  ></script>
-  
-  <!-- jQuery Easing -->
-  <script  src="js/jquery.easing.1.3.js" defer ></script>
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('#seminarioForm').submit(function(e){
+        e.preventDefault();
+        var $btn = $('#btn-seminario');
+        $btn.prop('disabled', true).text('ENVIANDO...');
 
-  <!-- Bootstrap -->
-  <script src="js/bootstrap.min.js" defer  ></script>
-  
-  <!-- Waypoints -->
-  <script  src="js/jquery.waypoints.min.js" defer></script>
-  
-  <!-- Stellar -->
-  <script  src="js/jquery.stellar.min.js" defer ></script>
-  
-  <!-- Magnific Popup -->
-  <script src="js/jquery.magnific-popup.min.js" async></script>
-  <script src="js/magnific-popup-options.js" async></script>
-
-  
-  <!-- Main -->
-  <script src="js/main.js" async ></script>
-  
-
-    <script src="js/modernizr-2.6.2.min.js" async></script >
-
-
-
-<script>
-
-$('#seminarioForm').submit(function(e){
-
-e.preventDefault();
-
-$.ajax({
-
-url:'enviar-acting.php',
-
-type:'POST',
-
-data:$('#seminarioForm').serialize(),
-
-success:function(r){
-
-r = r.trim();
-
-if(r == '1'){
-
-alert('Solicitud enviada correctamente');
-
-$('#seminarioForm')[0].reset();
-
-}else{
-
-alert('Ocurrió un error');
-
-}
-
-},
-
-error:function(xhr,status,error){
-
-alert('ERROR AJAX');
-
-console.log(xhr.responseText);
-
-}
-
-});
-
-});
-
-</script>
-
-
+        $.ajax({
+          url: 'enviar-acting.php',
+          type: 'POST',
+          data: $(this).serialize(),
+          success: function(r){
+            if(r.trim() == '1' || r.trim() == 'ok'){
+              alert('¡Solicitud enviada correctamente! Te contactaremos pronto.');
+              $('#seminarioForm')[0].reset();
+            } else {
+              alert('Ocurrió un error. Por favor, contáctanos por WhatsApp.');
+            }
+            $btn.prop('disabled', false).text('SOLICITAR INFORMACIÓN');
+          },
+          error: function(){
+            alert('Error de conexión. Intenta de nuevo o usa el botón de WhatsApp.');
+            $btn.prop('disabled', false).text('SOLICITAR INFORMACIÓN');
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

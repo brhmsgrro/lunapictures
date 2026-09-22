@@ -1,246 +1,258 @@
 <?php
+// 1. Configuración inicial (ANTES de cualquier HTML)
+if (session_status() == PHP_SESSION_NONE) {
+    ini_set('session.save_path', '/tmp');
+    session_start();
+}
+
 include '../DAO/MetodosDAO.php';
- ?>
+
+$error_msg = '';
+
+// 2. Procesar el registro ANTES de enviar cualquier cosa al navegador
+if (isset($_POST['btnEnviar'])) {
+    $nom = trim($_POST['txtNom']);
+    $cor = trim($_POST['txtCor']);
+    $tel = trim($_POST['txtTel']);
+    $pas = $_POST['txtPas'];
+    $dir = trim($_POST['txtDir']);
+
+    // Validación básica
+    if (!empty($nom) && !empty($cor) && !empty($pas)) {
+        try {
+            // Usamos exactamente las mismas clases que tu código original
+            $objCli = new Cliente(0, $nom, $cor, $tel, $pas, $dir);
+            $metodos = new MetodosDAO();
+            $resultado = $metodos->RegistrarCliente($objCli);
+            
+            if ($resultado == 1) {
+                // Registro exitoso: Guardamos datos en sesión para que no tenga que loguearse de nuevo
+                $_SESSION['acceso'] = true;
+                $_SESSION['nombre'] = $nom;
+                
+                // Redirección limpia (funciona porque aún no hemos enviado HTML)
+                header("Location: Cesta.php");
+                exit; // Detenemos la ejecución aquí para evitar errores
+            } else {
+                $error_msg = "No se pudo completar el registro. Es posible que este correo ya esté registrado.";
+            }
+        } catch (Exception $e) {
+            // Si algo falla en la base de datos, capturamos el error en lugar de mostrar un Error 500
+            $error_msg = "Ocurrió un error al procesar tu registro. Por favor, intenta de nuevo o contacta a soporte.";
+        }
+    } else {
+        $error_msg = "Por favor, completa todos los campos obligatorios.";
+    }
+}
+?>
 
 <!DOCTYPE html>
-<html prefix="og: https://lunapictures.com.mx/ns#">
-<html>
+<html lang="es-MX">
 <head>
-	<meta property="og:title" content="Es un apasionado del cine? entonces este es el regalo perfecto!!!" />
-  <meta property="og:type" content="https://youtu.be/h288O8gJFY8" />
-  <meta property="og:image" content="https://lunapictures.com.mx/images/regalos-para-cinefilos-background.jpg" />
-  <meta property="og:url" content="https://lunapictures.com.mx/regalos-para-cinefilos.php" />
-  <meta property="og:description" content="Camisetas, gorras, tazas y otros articulos mas para los amantes del 7mo arte. Entra no mordemos. " />
-    <meta property="og:locale" content="es_mex" />
-    <meta property="og:site_name" content="luna-pictures" />
-    <meta property="og:audio" content="" />
-    <meta property="og:video" content="https://www.youtube.com/embed/RF6NPobhlIc" />
-    <meta name="author" content="[by luna villares]">
-
-    <meta property="og:image" content="https://lunapictures.com.mx/images/1.png" />
-    <meta property="og:image" content="https://lunapictures.com.mx/images/lunapictures.jpg" />
-    <meta property="og:image" content="https://lunapictures.com.mx/images/pic02.jpg" />
-
-    <meta property="og:locale:alternate" content="fr_FR" />
-    <meta property="og:locale:alternate" content="en_EN" />
-
-
-  <meta http-equiv="Expires" content="0">
-  <meta http-equiv="Last-Modified" content="0">
-  <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
-  <meta http-equiv="Pragma" content="no-cache">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Cuenta | Luna Pictures Store</title>
+    <meta name="description" content="Regístrate en Luna Pictures Store para comprar playeras y accesorios de cine, rastrear tus pedidos y recibir ofertas exclusivas.">
     
-    <meta name="msvalidate.01" content="01A6CF40B8F324405EEDE52DB6C0BA5F" />
+    <!-- Bootstrap 5 & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <meta name=”msvalidate.01” content=”CODE”/> 
-    <meta name="robots" content="noindex">
+    <!-- ESTILOS DIRECTOS E INFALIBLES -->
+    <style>
+        body {
+            background-color: #f4f6f8;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
 
-   <meta charset="UTF-8">
+        .navbar-simple {
+            background: #fff;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+        .navbar-simple .brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+        .navbar-simple .brand em {
+            color: #e94560;
+            font-style: normal;
+        }
 
-<meta http-equiv="Content-Language" content="es-ES" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximun-sacle=1, user-scalable=no">
+        .register-wrapper {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 0 20px 60px 20px;
+        }
 
-	<title> ▷ regalos para cinefilos | camisetas serigrafiadas de tu pelicula favorita </title>
+        .register-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e1e4e8;
+        }
 
-<!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400, 900" rel="stylesheet"> -->
-  
- <!-- Animate.css -->
-  <link rel="preload" href="https://lunapictures.com.mx/css/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" >
-  <noscript><link rel="stylesheet" href="../css/animate.min.css" media="all"></noscript>
-    
-    
+        .register-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .register-header h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .register-header p {
+            color: #666;
+            font-size: 0.95rem;
+        }
 
-  <!-- Icomoon Icon Fonts 
-  <link rel="preload"  href="https://lunapictures.com.mx/css/icomoon.min.css"as="font"crossorigin>-->
-    <link rel="preload" href="https://lunapictures.com.mx/css/icomoon.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"  >
-    <noscript><link rel="stylesheet" href="../css/icomoon.min.css" media="all" ></noscript> 
-    
-  
-  <!-- Themify Icons-->
+        .form-group-custom {
+            margin-bottom: 20px;
+        }
+        .form-group-custom label {
+            display: block;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+        .form-control-custom {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+        .form-control-custom:focus {
+            outline: none;
+            border-color: #e94560;
+            box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.1);
+        }
 
-  
-  <!-- Bootstrap-->
-  <link rel="preload" href="https://lunapictures.com.mx/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"  >
-  <noscript><link rel="stylesheet" href="../css/bootstrap.min.css" media="all" ></noscript>
-     
+        .btn-register {
+            width: 100%;
+            padding: 14px;
+            background-color: #e94560;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 10px;
+        }
+        .btn-register:hover {
+            background-color: #c73650;
+        }
 
-  <!-- Magnific Popup -->
-  <link rel="preload" href="https://lunapictures.com.mx/css/magnific-popup.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"  >
-  <noscript><link rel="stylesheet" href="../css/magnific-popup.min.css" media="all"></noscript>
-  <!-- Owl Carousel  -->
-  
-  <!-- Flexslider -->
-	<link rel="preload" href="https://lunapictures.com.mx/css/style.css" as="style" > 
-  <link rel="stylesheet" href="../css/style.css" media="all">
-   
-  <!-- Modernizr JS -->
-  <title>Critical Path: Script Async</title>
-  
-   <script>
-/*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
-(function(){ ... }());
-</script>
-  
-  <!-- FOR IE9 below -->
-  <!--[if lt IE 9]>
-  <script src="js/respond.min.js"></script>
-  <![endif]-->
+        .login-link {
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #e1e4e8;
+            font-size: 0.95rem;
+            color: #666;
+        }
+        .login-link a {
+            color: #e94560;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .login-link a:hover {
+            text-decoration: underline;
+        }
 
+        .alert-custom {
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .alert-danger-custom {
+            background-color: #fef2f2;
+            color: #dc2626;
+            border: 1px solid #fecaca;
+        }
+    </style>
 </head>
-
-
-
 <body>
 
-
-<!-- End Google Tag Manager (noscript) --> 
-  
-   <div id="page">
-
-  <div class="gtco-loader"></div>
-  
-    
- <nav class="gtco-nav2" role="navigation">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-2 col-xs-12">
-          <div id="gtco-logo"><a href="https://www.lunapictures.com.mx/index.php">LUNA<em>PICTURES</em></a></div>
+    <!-- Navbar Simple -->
+    <nav class="navbar-simple">
+        <div class="container text-center">
+            <a href="Catalogo.php" class="brand">LUNA<em>PICTURES</em> STORE</a>
         </div>
-        <div class="col-xs-10 text-right menu-1 main-nav">
-          <ul>
-            <li class="active"><a href="" class="external" data-nav-section="home"></a></li>
-        <li  class="active"><a href="Cesta.php" rel=”nofollow class="external"><svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-  width="32" height="32" viewBox="0 -10 32 32">
-  <path fill="#000" fill-rule="nonzero" d="M12 7V6c0-1 2-3 3-2h4c1 0 2 1 2 2v1h7v19H5V7h7zm14 1H6v17h20V8zM13 6v1h6V6c0-.8-.5-1-1-1h-4c-.5 0-1 .5-1 1z"></path></svg></a></li>
-         <li><a href="../DAO/TiendaDAO.php?op=1" class="external">Catalogo</a></li>
-         
-         
+    </nav>
 
-              
-              <?php
-                 if (!isset($_SESSION ['acceso'])  || $_SESSION ['acceso'] <> true ){
-              ?>
-
+    <div class="register-wrapper">
+        <div class="register-card">
             
-              
-            
-              
-               <?php
-               } else{
-               ?>
+            <div class="register-header">
+                <h2><i class="fas fa-user-plus" style="color: #e94560;"></i> Crear Cuenta</h2>
+                <p>Regístrate para comprar, rastrear tus pedidos y recibir ofertas exclusivas.</p>
+            </div>
 
-              <li class="nav-item"><a  class="nav-link">Hola <?php echo $_SESSION ['nombre'];?></a></li> 
-              <li><a href="CerrarSesionTienda.php" class="external">cerrar sesion</a></li>
-              <?php
-              }
-              ?>
-             
-          </ul>
+            <!-- Mensaje de error (solo se muestra si algo falla) -->
+            <?php if (!empty($error_msg)): ?>
+                <div class="alert-custom alert-danger-custom">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span><?php echo htmlspecialchars($error_msg); ?></span>
+                </div>
+            <?php endif; ?>
+
+            <form method="POST" id="registroclientes">
+                <div class="form-group-custom">
+                    <label for="name">Nombre Completo *</label>
+                    <input name="txtNom" type="text" class="form-control-custom" id="name" placeholder="Ej. Juan Pérez" required>
+                </div>
+
+                <div class="form-group-custom">
+                    <label for="email">Correo Electrónico *</label>
+                    <input name="txtCor" type="email" class="form-control-custom" id="email" placeholder="tucorreo@ejemplo.com" required>
+                </div>
+
+                <div class="form-group-custom">
+                    <label for="tel">Teléfono</label>
+                    <input name="txtTel" type="tel" class="form-control-custom" id="tel" placeholder="Ej. 33 1234 5678">
+                </div>
+
+                <div class="form-group-custom">
+                    <label for="dir">Dirección de Envío</label>
+                    <input name="txtDir" type="text" class="form-control-custom" id="dir" placeholder="Calle, número, colonia, CP">
+                </div>
+
+                <div class="form-group-custom">
+                    <label for="password">Contraseña *</label>
+                    <input name="txtPas" type="password" class="form-control-custom" id="password" placeholder="Mínimo 6 caracteres" required minlength="6">
+                </div>
+
+                <button type="submit" name="btnEnviar" id="btnRegistro" class="btn-register">
+                    <i class="fas fa-check-circle"></i> Guardar Datos y Continuar
+                </button>
+            </form>
+
+            <div class="login-link">
+                ¿Ya tienes una cuenta? <a href="#" onclick="window.location.href='Catalogo.php'; return false;">Volver a la tienda</a>
+            </div>
+            
         </div>
-      </div>
     </div>
-  </nav>
 
-
-  
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-md-push-2 animate-box">
-          <h2 align="center" style= "margin-top: 80px; ">Registro de usuarios</h2>
-
-	     <form  method="POST" id="registroclientes">
-		      <div class="form-group">
-              <label for="name" class="sr-only">Nombre</label>
-              <input name="txtNom" type="text" class="form-control" placeholder="Nombre" id="name"   required  >
-            </div>
-            <div class="form-group">
-              <label for="email" class="sr-only">Correo</label>
-              <input name="txtCor" type="text" class="form-control" placeholder="correo" id="email"  required >
-            </div>
-            <div class="form-group">
-              <label for="tel" class="sr-only">Telefono</label>
-              <input name="txtTel"  type="text" class="form-control" placeholder="Telefono"  id="telefono" required >
-            </div>
-
-             <div class="form-group">
-                 <label for="tel" class="sr-only">Dirección</label>
-                 <input name="txtDir"  type="text" class="form-control" placeholder="Dirección"  id="Dirección" required >
-             </div>
-            <div class="form-group">
-              <label for="message" class="sr-only">Password</label>
-              <input name="txtPas"  type="password" class="form-control" placeholder="Password"  id="password" required >
-            </div>
-            <div class="form-group">
-
-           <button type="submit" value="GuardarDatos" class="btn btn-primary"  name="btnEnviar" id="btnRegistro">Guardar datos</button>
-           </div>
-	     </form>
-        </div>
-     </div>
-</div>
-     
-
-            <?php 
-            if (isset($_REQUEST ['btnEnviar'])) {
-            $nom=$_REQUEST['txtNom'];
-            $cor=$_REQUEST['txtCor'];
-            $tel=$_REQUEST['txtTel'];
-            $pas=$_REQUEST['txtPas'];
-            $Dir=$_REQUEST['txtDir'];
-            
-
-            $objCli=new Cliente (0, $nom, $cor, $tel, $pas, $Dir);
-            $metodos=new MetodosDAO();
-            $i=$metodos->RegistrarCliente ($objCli);
-            
-            if ($i==1) {
-                echo '<script language="javascript">';
-                echo 'window.location.href = "https://lunapictures.com.mx/Vistas/Cesta.php";';
-                echo '</script>';
-            }
-
-           // header ("Location: https://lunapictures.com.mx/Vistas/Cesta.php");
-            else {
-                header("location: Catalogo.php?error=no se inserto el registro");
-            }
-            }
-            ?>
-
-
-
-
-
-<!-- jQuery -->
-  <script  src="../js/jquery.min.js"  ></script>
-  
-  <!-- jQuery Easing -->
-  <script  src="../js/jquery.easing.1.3.js" defer ></script>
-
-  <!-- Bootstrap -->
-  <script src="../js/bootstrap.min.js" defer  ></script>
-  
-  <!-- Waypoints -->
-  <script  src="../js/jquery.waypoints.min.js" defer></script>
-  
-  <!-- Stellar -->
-  <script  src="../js/jquery.stellar.min.js" defer ></script>
-
-  <!-- Magnific Popup -->
-  <script src="../js/jquery.magnific-popup.min.js" async></script>
-  <script src="../js/magnific-popup-options.js" async></script>
- <!-- Main -->
-  <script src="../js/main.js" async ></script>
-  
-
-    <script src="../js/modernizr-2.6.2.min.js" async></script >
-
-     <!-- 
-      <script src=""></script> 
-     -->
-
-
-
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
