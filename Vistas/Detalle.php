@@ -123,13 +123,22 @@ try {
     <select name="color" id="colorSelector" class="form-control-custom" 
             onchange="cambiarImagenPorColor(<?php echo $cod; ?>, this.value)">
         <option value="Estándar">Estándar</option>
-        <option value="Negro">Negro</option>
-        <option value="Blanco">Blanco</option>
-        <option value="Rojo">Rojo</option>
-        <option value="Azul">Azul</option>
-        <option value="Gris">Gris</option>
-        <option value="Rosa">Rosa</option>
-        <option value="Verde">Verde</option>
+        <?php
+        // Obtener los colores disponibles SOLO para este producto
+        $coloresDisponibles = $objMetodos->ListarColoresDisponibles($cod);
+        
+        if (!empty($coloresDisponibles)) {
+            foreach ($coloresDisponibles as $color) {
+                $colorSafe = htmlspecialchars($color);
+                echo '<option value="' . $colorSafe . '">' . $colorSafe . '</option>';
+            }
+        } else {
+            // Si no hay colores registrados, mostrar los genéricos como respaldo
+            echo '<option value="Negro">Negro</option>';
+            echo '<option value="Blanco">Blanco</option>';
+            echo '<option value="Rojo">Rojo</option>';
+        }
+        ?>
     </select>
 </div>
 <?php else: ?>

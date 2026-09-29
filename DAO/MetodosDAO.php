@@ -140,6 +140,44 @@ public function ValidarUsuario ($correo, $pas) {
 		return $row ? $row['ruta_imagen'] : null;
 	}
 
+public function ListarColoresDisponibles($codpro) {
+    $cnx = new ConexionDB();
+    $cn = $cnx->getConexion();
+    // Obtenemos los colores únicos que tienen imagen para este producto
+    $res = $cn->prepare("SELECT DISTINCT color_asociado FROM producto_imagenes WHERE codpro = :cod AND color_asociado IS NOT NULL AND color_asociado != '' ORDER BY color_asociado ASC");
+    $res->bindParam(':cod', $codpro, PDO::PARAM_INT);
+    $res->execute();
+    $cn = null;
+    $lista = array();
+    foreach ($res as $row) {
+        $lista[] = $row['color_asociado'];
+    }
+    return $lista;
+}	
+
+public function ListarImagenesPorColorYProducto($codpro, $color) {
+    $cnx = new ConexionDB();
+    $cn = $cnx->getConexion();
+    
+    // Busca primero por la columna color_asociado, y si no, por el nombre del archivo
+    $res = $cn->prepare("SELECT ruta_imagen FROM producto_imagenes 
+                         WHERE codpro = :cod 
+                         AND (color_asociado = :color OR ruta_imagen LIKE :colorBuscado)
+                         LIMIT 1");
+    $res->bindParam(':cod', $codpro, PDO::PARAM_INT);
+    $res->bindParam(':color', $color, PDO::PARAM_STR);
+    $res->bindValue(':colorBuscado', '%' . strtolower($color) . '%', PDO::PARAM_STR);
+    $res->execute();
+    
+    $cn = null;
+    $lista = array();
+    foreach ($res as $row) {
+        $lista[] = $row;
+    }
+    return $lista;
+}
+
+
 } // <--- ¡ESTA LLAVE DEBE SER LA ÚLTIMA LÍNEA DEL ARCHIVO!
 
 

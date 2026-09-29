@@ -11,6 +11,8 @@ $estado = $_REQUEST['estado'] ?? '';
 // Verificar si el usuario está logueado de forma segura
 $is_logged_in = isset($_SESSION['acceso']) && $_SESSION['acceso'] === true;
 $user_name = $_SESSION['nombre'] ?? 'Cliente';
+
+
 ?>
 
 <!DOCTYPE html>
@@ -192,11 +194,67 @@ $user_name = $_SESSION['nombre'] ?? 'Cliente';
                 <a href="Catalogo.php" style="display: inline-block; background: #2c3e50; color: #fff; padding: 15px 40px; border-radius: 8px; text-decoration: none; font-weight: 700;">Seguir Comprando</a>
             </div>
 
+                       <?php elseif (isset($_REQUEST['error'])): ?>
+            <?php 
+            $error_tipo = $_REQUEST['error'] ?? 'desconocido';
+            // Recibimos y decodificamos el mensaje de error real
+            $error_detalle = isset($_REQUEST['detalle']) ? htmlspecialchars(urldecode($_REQUEST['detalle'])) : 'Sin detalles adicionales';
+            ?>
+            <div class="success-box">
+                <i class="fas fa-exclamation-triangle" style="font-size: 4rem; color: #ffc107; margin-bottom: 20px;"></i>
+                <h2 style="font-weight: 800; margin-bottom: 15px; color: #dc3545;">Error en el Pago</h2>
+                
+                <!-- Aquí se mostrará el error real de Stripe o PHP -->
+                <div style="background: #f8d7da; color: #721c24; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-family: monospace; font-size: 0.9rem; text-align: left; word-break: break-word;">
+                    <strong>Detalle técnico:</strong><br>
+                    <?php echo $error_detalle; ?>
+                </div>
+
+                <p style="color: #666; margin-bottom: 20px;">Por favor, revisa el mensaje de arriba. Si dice "No hay productos válidos", verifica tu base de datos.</p>
+                
+                <a href="Cesta.php" style="display: inline-block; background: #2c3e50; color: #fff; padding: 15px 40px; border-radius: 8px; text-decoration: none; font-weight: 700;">Volver al Carrito</a>
+            </div>
+
+
+            <div class="success-box">
+                <i class="fas fa-exclamation-triangle" style="font-size: 4rem; color: #ffc107; margin-bottom: 20px;"></i>
+                <h2 style="font-weight: 800; margin-bottom: 15px; color: #dc3545;">Error en el Pago</h2>
+                <p style="color: #666; margin-bottom: 20px; line-height: 1.6;"><?php echo $error_msg; ?></p>
+                
+                <?php if ($is_logged_in): ?>
+                    <div class="d-grid gap-2" style="max-width: 300px; margin: 0 auto;">
+                        <form action="../api/crear_pago_stripe.php" method="POST">
+                            <input type="hidden" name="total" value="<?php echo $total; ?>">
+                            <button type="submit" class="btn-stripe">
+                                <i class="fab fa-stripe"></i> Reintentar con Stripe
+                            </button>
+                        </form>
+                        
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                            <input type="hidden" name="cmd" value="_xclick" />
+                            <input type="hidden" name="business" value="ventas@lunapictures.com.mx" />
+                            <input type="hidden" name="item_name" value="Pedido Luna Pictures Store" />
+                            <input type="hidden" name="amount" value="<?php echo number_format($total, 2, '.', ''); ?>" />
+                            <input type="hidden" name="currency_code" value="MXN" />
+                            <input type="hidden" name="quantity" value="1" />
+                            <input type="hidden" name="return" value="https://lunapictures.com.mx/Vistas/pago.php?estado=ok" />
+                            <input type="hidden" name="cancel_return" value="https://lunapictures.com.mx/Vistas/Cesta.php" />
+                            <button type="submit" class="btn-paypal">
+                                <i class="fab fa-paypal"></i> Intentar con PayPal
+                            </button>
+                        </form>
+                    </div>
+                <?php else: ?>
+                    <a href="Cesta.php" style="display: inline-block; background: #2c3e50; color: #fff; padding: 15px 40px; border-radius: 8px; text-decoration: none; font-weight: 700;">Volver al Carrito</a>
+                <?php endif; ?>
+            </div>
+
         <?php else: ?>
+            <!-- ✅ ACCESO NO VÁLIDO (sin parámetros) -->
             <div class="success-box">
                 <i class="fas fa-exclamation-circle" style="font-size: 4rem; color: #dc3545; margin-bottom: 20px;"></i>
                 <h2 style="font-weight: 800; margin-bottom: 15px;">Acceso No Válido</h2>
-                <p style="color: #666; margin-bottom: 30px;">No pudimos procesar tu solicitud. Por favor, verifica tu carrito.</p>
+                <p style="color: #666; margin-bottom: 30px;">No pudimos procesar tu solicitud. Por favor, inicia el proceso desde el carrito.</p>
                 <a href="Cesta.php" style="display: inline-block; background: #2c3e50; color: #fff; padding: 15px 40px; border-radius: 8px; text-decoration: none; font-weight: 700;">Volver al Carrito</a>
             </div>
         <?php endif; ?>

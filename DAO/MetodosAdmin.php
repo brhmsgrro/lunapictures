@@ -33,14 +33,13 @@ class MetodosAdmin {
 		 return $lista;
 	}
 
-	// Reemplaza tu función grabarProducto por esta:
-public function grabarProductoConCategoria(Producto $pro, $id_categoria) {
+	public function grabarProductoConCategoria(Producto $pro, $id_categoria) {
     $cnx = new ConexionDB();
     $cn = $cnx->getConexion();
     
-    // Usamos bindParam para evitar SQL Injection (¡toque Pro!)
-    $res = $cn->prepare("INSERT INTO productos (descripcion, precio, stock, estado, detalle, imagen, id_categoria) 
-                         VALUES (:des, :pre, :stock, :estado, :detalle, :img, :cat)");
+    // ✅ AHORA SÍ INCLUIMOS LA COLUMNA 'envio'
+    $res = $cn->prepare("INSERT INTO productos (descripcion, precio, stock, estado, detalle, imagen, id_categoria, envio) 
+                         VALUES (:des, :pre, :stock, :estado, :detalle, :img, :cat, :envio)");
     $res->bindParam(':des', $pro->des, PDO::PARAM_STR);
     $res->bindParam(':pre', $pro->pre, PDO::PARAM_STR);
     $res->bindParam(':stock', $pro->stock, PDO::PARAM_INT);
@@ -48,10 +47,9 @@ public function grabarProductoConCategoria(Producto $pro, $id_categoria) {
     $res->bindParam(':detalle', $pro->detalle, PDO::PARAM_STR);
     $res->bindParam(':img', $pro->imagen, PDO::PARAM_STR);
     $res->bindParam(':cat', $id_categoria, PDO::PARAM_INT);
+    $res->bindParam(':envio', $pro->envio, PDO::PARAM_INT); // ✅ Nuevo parámetro
     
     $res->execute();
-    
-    // Obtenemos el ID del producto recién creado para poder guardar sus variantes
     $nuevoCod = $cn->lastInsertId();
     $cn = null;
     
@@ -63,10 +61,11 @@ public function editarProductoConCategoria(Producto $pro, $id_categoria) {
     $cnx = new ConexionDB();
     $cn = $cnx->getConexion();
     
+    // ✅ AHORA SÍ ACTUALIZAMOS LA COLUMNA 'envio'
     $res = $cn->prepare("UPDATE productos SET 
                          descripcion=:des, precio=:pre, stock=:stock, 
                          estado=:estado, detalle=:detalle, imagen=:img, 
-                         id_categoria=:cat 
+                         id_categoria=:cat, envio=:envio 
                          WHERE codpro=:cod");
                          
     $res->bindParam(':des', $pro->des, PDO::PARAM_STR);
@@ -76,6 +75,7 @@ public function editarProductoConCategoria(Producto $pro, $id_categoria) {
     $res->bindParam(':detalle', $pro->detalle, PDO::PARAM_STR);
     $res->bindParam(':img', $pro->imagen, PDO::PARAM_STR);
     $res->bindParam(':cat', $id_categoria, PDO::PARAM_INT);
+    $res->bindParam(':envio', $pro->envio, PDO::PARAM_INT); // ✅ Nuevo parámetro
     $res->bindParam(':cod', $pro->cod, PDO::PARAM_INT);
     
     $res->execute();
@@ -219,21 +219,37 @@ public function editarProductoConCategoria(Producto $pro, $id_categoria) {
 		return $resultado;
 	}
 
-	public function GuardarImagenProducto($codpro, $id_variante, $ruta, $tipo, $orden, $es_principal) {
+		public function GuardarImagenProducto($codpro, $id_variante, $ruta, $tipo, $orden, $es_principal) {
 		$cnx = new ConexionDB();
 		$cn = $cnx->getConexion();
-		$res = $cn->prepare("INSERT INTO producto_imagenes (codpro, id_variante, ruta_imagen, tipo_imagen, orden, es_principal) VALUES (:cod, :var, :ruta, :tipo, :orden, :principal)");
+		
+		// ✨ MAGIA: Extraer el color del nombre del archivo (ej: "prod_54_negro_123.jpg" → "Negro")
+		$partes = explode('_', $ruta);
+		$colorDetectado = 'Estándar'; // Valor por defecto
+		
+		foreach ($partes as $parte) {
+			if (in_array(strtolower($parte), ['negro', 'blanco', 'rojo', 'azul', 'gris', 'rosa', 'verde'])) {
+				$colorDetectado = ucfirst($parte); // Primera letra mayúscula
+				break;
+			}
+		}
+		
+		// ✨ Ahora guardamos también la columna 'color_asociado'
+		$res = $cn->prepare("INSERT INTO producto_imagenes (codpro, id_variante, ruta_imagen, tipo_imagen, orden, es_principal, color_asociado) 
+		                     VALUES (:cod, :var, :ruta, :tipo, :orden, :principal, :color)");
 		$res->bindParam(':cod', $codpro, PDO::PARAM_INT);
 		$res->bindParam(':var', $id_variante, PDO::PARAM_INT);
 		$res->bindParam(':ruta', $ruta, PDO::PARAM_STR);
 		$res->bindParam(':tipo', $tipo, PDO::PARAM_STR);
 		$res->bindParam(':orden', $orden, PDO::PARAM_INT);
 		$res->bindParam(':principal', $es_principal, PDO::PARAM_INT);
+		$res->bindParam(':color', $colorDetectado, PDO::PARAM_STR);
+		
 		$resultado = $res->execute();
 		$cn = null;
 		return $resultado;
 	}
-
+	
 	public function ListarImagenesProducto($codpro) {
 		$cnx = new ConexionDB();
 		$cn = $cnx->getConexion();

@@ -21,8 +21,20 @@ if ($hayProductos) {
     }
 }
 
-// 🎯 LÓGICA DE ENVÍO GRATIS (Se evalúa DESPUÉS de tener el subtotal real)
-if ($subtotal_productos >= $umbral_envio_gratis) {
+// 🎯 LÓGICA DE ENVÍO GRATIS CON DOS REGLAS
+$tiene_producto_envio_gratis = false;
+
+// Regla 1: ¿Algún producto tiene envío gratis individual?
+foreach ($_SESSION['cesta'] as $id => $item) {
+    $prod = (new MetodosDAO())->ListarProductosCod($id);
+    if ($prod && isset($prod[8]) && $prod[8] == 0) {
+        $tiene_producto_envio_gratis = true;
+        break; // Con encontrar uno es suficiente
+    }
+}
+
+// Aplicar reglas de envío
+if ($tiene_producto_envio_gratis || $subtotal_productos >= $umbral_envio_gratis) {
     $costo_envio = 0; // ¡Envío gratis!
 } else {
     $costo_envio = $costo_envio_estandar; // Se cobra la tarifa estándar
@@ -73,32 +85,55 @@ $_SESSION['resumen_pedido'] = [
             <div class="row">
                 <!-- Lista de Productos -->
                 <div class="col-lg-8">
-                    <?php
-                    foreach ($_SESSION['cesta'] as $id => $item) {
-                        $prod = (new MetodosDAO())->ListarProductosCod($id);
-                        if ($prod) {
-                            $subtotal_linea = $item->cantidad * $prod[2];
-                    ?>
-                    <div class="card mb-3">
-                        <div class="card-body d-flex align-items-center">
-                            <img src="../images/<?php echo $prod[6]; ?>" class="img-fluid" style="width: 100px; height: 100px; object-fit: contain;" alt="<?php echo $prod[1]; ?>">
-                            <div class="ms-3 flex-grow-1">
-                                <h5 class="mb-1"><?php echo $prod[1]; ?></h5>
-                                <p class="mb-1 text-muted small">Talla: <?php echo $item->talla; ?> | Color: <?php echo $item->color; ?></p>
-                                <p class="mb-0">Cantidad: <?php echo $item->cantidad; ?> x $<?php echo number_format($prod[2], 2); ?></p>
-                            </div>
-                            <div class="text-end">
-                                <h5 class="text-primary mb-2">$<?php echo number_format($subtotal_linea, 2); ?></h5>
-                                <a href="../DAO/TiendaDAO.php?id=<?php echo $id; ?>&accion=eliminar&op=2" class="text-danger text-decoration-none" onclick="return confirm('¿Eliminar este producto?')">
-                                    <i class="fas fa-trash"></i> Eliminar
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <?php
-                        }
-                    }
-                    ?>
+                   <?php
+foreach ($_SESSION['cesta'] as $id => $item) {
+    $prod = (new MetodosDAO())->ListarProductosCod($id);
+    if ($prod) {
+        $subtotal_linea = $item->cantidad * $prod[2];
+        
+        // 🎯 LÓGICA PARA OBTENER LA IMAGEN CORRECTA SEGÚN EL COLOR
+        $imagenMostrar = $prod[6]; // Imagen por defecto (respaldo)
+        
+        // Si el producto tiene un color asignado y no es "Estándar"
+        if (isset($item->color) && !empty($item->color) && strtolower($item->color) !== 'estándar') {
+            $dao = new MetodosDAO();
+            // Buscamos la imagen que coincida con el color
+            $imagenesColor = $dao->ListarImagenesPorColorYProducto($id, $item->color);
+            
+            if (!empty($imagenesColor) && isset($imagenesColor[0]['ruta_imagen'])) {
+                $imagenMostrar = $imagenesColor[0]['ruta_imagen'];
+            }
+        }
+?>
+        <div class="card mb-3">
+            <div class="card-body d-flex align-items-center">
+                <!-- ✅ AQUÍ USAMOS LA IMAGEN DINÁMICA -->
+                <img src="../images/<?php echo htmlspecialchars($imagenMostrar); ?>" 
+                     class="img-fluid rounded" 
+                     style="width: 100px; height: 100px; object-fit: contain; border: 1px solid #eee;" 
+                     alt="<?php echo htmlspecialchars($prod[1]); ?>">
+                     
+                <div class="ms-3 flex-grow-1">
+                    <h5 class="mb-1"><?php echo htmlspecialchars($prod[1]); ?></h5>
+                    <p class="mb-1 text-muted small">
+                        Talla: <strong><?php echo htmlspecialchars($item->talla); ?></strong> | 
+                        Color: <strong><?php echo htmlspecialchars($item->color); ?></strong>
+                    </p>
+                    <p class="mb-0">Cantidad: <?php echo $item->cantidad; ?> x $<?php echo number_format($prod[2], 2); ?></p>
+                </div>
+                
+                <div class="text-end">
+                    <h5 class="text-primary mb-2">$<?php echo number_format($subtotal_linea, 2); ?></h5>
+                    <a href="../DAO/TiendaDAO.php?id=<?php echo $id; ?>&accion=eliminar&op=2" class="text-danger text-decoration-none small" onclick="return confirm('¿Eliminar este producto?')">
+                        <i class="fas fa-trash"></i> Eliminar
+                    </a>
+                </div>
+            </div>
+        </div>
+<?php
+    }
+}
+?>
                 </div>
                 
                 <!-- Resumen del Pedido (AQUÍ ESTÁ EL MENSAJE MÁGICO) -->
@@ -165,5 +200,11 @@ $_SESSION['resumen_pedido'] = [
         window.location.href = 'Pago.php?total=<?php echo $total_final; ?>&estado=pagar';
     }
     </script>
+
+<!-- Pega esto al final de Cesta.php, antes del </body> -->
+<script>
+console.log("Sesión en el carrito:", <?php echo json_encode($_SESSION); ?>);
+</script>
+
 </body>
 </html>
