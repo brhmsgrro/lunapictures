@@ -1,0 +1,36 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www.lunapictures.com. [NC]
+RewriteRule ^(.*)$ https://lunapictures.com.mx/$1 [R,L]
+
+# BEGIN Caching
+<IfModule mod_headers.c>
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|webp|gif|swf|ttf|otf|woff|woff2|eot|svg)$">
+Header set Cache-Control "max-age=2592000, public"
+</FilesMatch>
+<FilesMatch "\.(css)$">
+Header set Cache-Control "max-age=604800, public"
+</FilesMatch>
+<FilesMatch "\.(js)$">
+Header set Cache-Control "max-age=216000, private"
+</FilesMatch>
+<FilesMatch "\.(xml|txt)$">
+Header set Cache-Control "max-age=216000, public, must-revalidate"
+</FilesMatch>
+<FilesMatch "\.(html|htm|php)$">
+Header set Cache-Control "max-age=1, private, must-revalidate"
+</FilesMatch>
+</IfModule>
+# END Caching
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/jpg "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript
+</IfModule>
+

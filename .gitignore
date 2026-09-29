@@ -1,0 +1,28 @@
+# Ignorar imágenes de productos (pesan mucho)
+images/prod_*
+images/*.jpg
+images/*.png
+images/*.jpeg
+
+# Archivos de sistema y logs
+.DS_Store
+Thumbs.db
+*.log 
+*.pdf
+*.mp4
+*.zip
+error_log
+ftpsync.settings
+.ftpsync/
+ftpsync.settings
+.ftpsync/
+				
+   config/stripe.php
+   config/
+   .env				
+	
+				
+	
+	
+
+config/stripe.php

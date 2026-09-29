@@ -1,0 +1,717 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"he",
+				"height"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"di",
+				"div\tTag"
+			],
+			[
+				"in",
+				"input\tTag"
+			],
+			[
+				"ac",
+				"action\tAttr"
+			],
+			[
+				"obj",
+				"objDetalle"
+			],
+			[
+				"is",
+				"is_a"
+			],
+			[
+				"margin",
+				"margin-top\tproperty"
+			],
+			[
+				"for",
+				"foreach\tforeach …"
+			],
+			[
+				"incl",
+				"ps_include_file"
+			],
+			[
+				"include",
+				"get_include_path"
+			],
+			[
+				"aud",
+				"audiovisual"
+			],
+			[
+				"hi",
+				"hidden"
+			],
+			[
+				"empre",
+				"emprendedores"
+			],
+			[
+				"mar",
+				"Marketing"
+			],
+			[
+				"au",
+				"audiovisual"
+			],
+			[
+				"images",
+				"images"
+			],
+			[
+				"png",
+				"png"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "\nvar tag = document.createElement ('script');\n                    \ttag.src = \"https://www.youtube.com/player_api\";\n                    \tvar control = document.getElementsbyTagname 'script'()[0];\n                    \tcontrol.parentNode.insertBefore (tag, control);\n\n                    \tvar player;\n                    \tfunction YouTubeIframeAPIReady() {\n                    \t\tplayer = new YT.player ('video',{\n                    \t\t\theight: '360px',\n                    \t\t\twidth: '640px',\n                    \t\t\tvideoId: '6LQH6AM443I' \n                    \t\t});\n                    \t}",
+			"settings":
+			{
+				"buffer_size": 584,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/index.php",
+			"settings":
+			{
+				"buffer_size": 27157,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/run-marcos-escala-de-grises.php",
+			"settings":
+			{
+				"buffer_size": 9165,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"pakege contro",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: i",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 157.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/css"
+	],
+	"file_history":
+	[
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/cuantas-veces-acustico-escala-de-grises.php",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/cuantas-veces-escala-de-grises.php",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/cristal-carton-escala-de-grises.php",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/maravilloso-escala-de-grises.php",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/destino-escala-de-grises.php",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/para-armando-escala-de-grises.php",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/run-marcos-sonoros-vol-3-los-covers.php",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/aviso-de-ocasion-sonoros-vol-3-los-covers.php",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/destino-sonoros-vol-3-los-covers.php",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/aviso-de-ocasion-rock-pop-sonoros-vol-3-los-covers.php",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/maravilloso-sonoros-vol-3-los-covers.php",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/destino-acustico-escala-de-grises.php",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/maravilloso-acustico-escala-de-grises.php",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/aviso-de-ocasion-acustico-escala-de-grises.php",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/run-marcos-acustico-escala-de-grises.php",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/mi-ser-acustico-escala-de-grises.php",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/para-armando-acustico-escala-de-grises.php",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/crystal-carton-acustico-escala-de-grises.php",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/run-marcos-escala-de-grises.php",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/index.php",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/css/styles.css",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/no-podras-cover-cristian-castro-escala-de-grises.php",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/sitemap.xml",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/sitemap-video.xml",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/mi-ser-escala-de-grises.php",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/robots.txt",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/css/styles2.css",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/js/main.js",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/Robots.txt",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/index.php",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/sonoros-vol-3-los-covers.php",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/css/aviso-de-ocasion-sonoros-vol-3.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/descargas-clientes.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/curso-de-actuacion-para-cine-video-y-television-en-gdl.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/casting-en-gdl-talento-lunapictures.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Vistas/Catalogo.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/fotografia-de-producto-y-produccion-audiovisual-para-pymes.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/contac-servicios.php",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/img/el-llano-en-llamas2.jpg",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/img/el-llano-en-llamas.png",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/img/brhms-grro-spotify3.png",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/direccion-de-arte-para-tu-cortometraje-Cine-independiente-en-guadalajara.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/css/style.css",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/.htaccess",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/js/app.js",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/indes.php",
+		"/C/Users/alv58/AppData/Roaming/Sublime Text 3/Packages/User/vista.sublime-build",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/css/bootstrap.css",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/grabacion-de-audio-directo-para-tu-cortometraje-gdl-jal.php",
+		"/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/sftp-config.json",
+		"/C/Users/alv58/OneDrive/Escritorio/cochys2prestashop/sftp-config.json",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/el-diario-de-un emprendedor-blog-historias-sobre-emprender.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/foro-de-grabacion-estudio-cine-gdl.php",
+		"/C/Users/alv58/OneDrive/Escritorio/cochys2prestashop/config/index.php",
+		"/C/Users/alv58/OneDrive/Escritorio/cochys2prestashop/themes/classic/templates/catalog/product.tpl",
+		"/C/Users/alv58/OneDrive/Escritorio/cochys2prestashop/config/defines.inc.php",
+		"/C/Users/alv58/OneDrive/Escritorio/lamamba.com.mx/lamamba/index.php",
+		"/C/Users/alv58/OneDrive/Escritorio/cochys2prestashop/admin021bw7fqe/index.php",
+		"/C/Users/alv58/OneDrive/Escritorio/cochys2prestashop/app/config/parameters.php",
+		"/C/Users/alv58/OneDrive/Escritorio/cochys2prestashop/classes/module/Module.php",
+		"/C/Users/alv58/OneDrive/Escritorio/cochys2prestashop/admin021bw7fqe/.htaccess",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/enviar-acting.php",
+		"/C/Users/alv58/OneDrive/Escritorio/cochys2prestashop/config/alias.php",
+		"/C/Users/alv58/OneDrive/Escritorio/cochys2prestashop/app/config/parameters.yml",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/enviar-networking.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/enviar-newsletter.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/enviar-pdf.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/enviar-servicios.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/enviar.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/enviar-tienda.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/enviar-casting.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/enviar-contacto.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Utils/ConexionDB.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/DAO/MetodosDAO.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/negocio-familiar-pros-y-contras.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/mi-experiencia-en-un-multinivel.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Mercadólogo-VS-lic.-en-MKT-el-coste-de-oportunidad.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/en-mi-otra-vida-por-rodolfo-naro.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/dibujar-para-vender-siempre-necesitaras-marketing-para-venderlo.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/como-no-ser-un-fotografo-de-sociales.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/amigos-que-te-rompen-el-corazon-lo-dificil-de-ser-musico.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/un-regalo-para-mi-padre-o-cantar-sin-ser-cantante.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/todo-es-marketing-el-podcast-estrategias-de-mercadeo-con-luna-villares-abraham.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/transmedia-y-postmodernismo.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/aside.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/cv.pdf",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/menu.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/menu-dropdown.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/sitemap.xml",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Termina-tu-tesis-audiovisual-produccion-gdl.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/presidium-cortometraje-ficg-2020.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/regalos-del-diario-de-un emprendedor-blog-libro-pdf.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/regalos-para-cinefilos.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Fabricacion-de-decorados-para-cine-en-guadalajara-jal.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/como-hacer-cortometraje-el-crew-cinematografico.php",
+		"/C/Users/alv58/OneDrive/Escritorio/lamamba.com.mx/lamamba/css/index.css",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/.htaccess",
+		"/C/Users/alv58/OneDrive/Escritorio/lamamba.com.mx/lamamba/menu-la-mamba-restaurant-bar.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/js/main.js",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/1.htaccess",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Vistas/Cesta.php",
+		"/C/Users/alv58/OneDrive/Escritorio/lamamba.com.mx/lamamba/css/styles.css",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/BEANS/Producto.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Vistas/Detalle.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Vistas/error_log",
+		"/C/Users/alv58/OneDrive/Escritorio/cochys2prestashop/modules/ps_imageslider/ps_imageslider.php",
+		"/C/Users/alv58/OneDrive/Escritorio/cochys.com/sftp-config-alt.json",
+		"/C/Users/alv58/OneDrive/Escritorio/cochys.com/sftp-config.json",
+		"/C/Users/alv58/OneDrive/Escritorio/cochys.com/ftp-simple-temp.json",
+		"/C/Users/alv58/OneDrive/Escritorio/cochys.com/cochys/index.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/robots.txt",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Vistas/Registro.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/regalos-para-cinefilos-y-amantes-del-cine.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/contac-newsletter.php",
+		"/C/Users/alv58/Downloads/index.html",
+		"/C/Users/alv58/OneDrive/Escritorio/lamamba.com.mx/sftp-config.json",
+		"/C/Users/alv58/OneDrive/Escritorio/food pagina/foodstore-master/css/index.css",
+		"/C/Users/alv58/OneDrive/Escritorio/food pagina/foodstore-master/index.html",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Vistas/Pago.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/BEANS/DetallePedido.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/BEANS/Cliente.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/Dashboard/clientes.php",
+		"/C/Users/alv58/OneDrive/Escritorio/LUNA PICTURES/luna picture pagina web/lunapictures.com.mx/public_html/sftp-config.json",
+		"/C/Users/alv58/OneDrive/Escritorio/cochys.com/cochys/css/styles.css",
+		"/C/Users/alv58/OneDrive/Escritorio/lamamba.com.mx/lamamba/js/main.js",
+		"/C/Users/alv58/OneDrive/Escritorio/pagina web alex/Página web AlexCG Design/index.html",
+		"/C/Users/alv58/OneDrive/Escritorio/pagina web alex/Página web AlexCG Design/css/estilos.css",
+		"/C/Users/alv58/OneDrive/Escritorio/cochys.com/cochys/js/main.js"
+	],
+	"find":
+	{
+		"height": 29.0
+	},
+	"find_in_files":
+	{
+		"height": 106.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"<!",
+			"16.66667%",
+			"heading animate-box",
+			"col-md-4",
+			"<!",
+			"btn ",
+			"btn btn-warning",
+			"btn warning",
+			"@",
+			"<!",
+			"menu_flex",
+			"heading",
+			"col-md-12",
+			"gtc",
+			"fbcdn",
+			"static",
+			"static.xx.fbcdn.",
+			"\t\t\t\t\t       </",
+			" logo name",
+			"bgleft ",
+			"gtco-about",
+			"section about",
+			"col-md-9",
+			"por ahi",
+			"  \n",
+			".line-low bg1 n600 ",
+			".btn succes focus",
+			"h3"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 584,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"incomplete_sync": null,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 5,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/index.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 27157,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2520,
+								2520
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 540.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/Users/alv58/OneDrive/Escritorio/brhmsgrro/run-marcos-escala-de-grises.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9165,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5846,
+								5846
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2460.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 29.0
+	},
+	"input":
+	{
+		"height": 41.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				2,
+				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
+			],
+			[
+				1,
+				1,
+				2,
+				2
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			0.948717948718,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SFTP":
+	{
+		"height": 138.0
+	},
+	"output.exec":
+	{
+		"height": 138.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 126.0
+	},
+	"output.xdebug":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/User/vista.sublime-build",
+	"project": "luna.sublime-project",
+	"replace":
+	{
+		"height": 54.0
+	},
+	"save_all_on_build": false,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"public_html\\add_rate.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"xdebug":
+		{
+			"hide_conflict": false,
+			"restore_index":
+			{
+				"15":
+				{
+					"group": 0,
+					"index": 0
+				},
+				"16":
+				{
+					"group": 0,
+					"index": 2
+				},
+				"20":
+				{
+					"group": 0,
+					"index": 1
+				}
+			},
+			"restore_layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						2,
+						1
+					],
+					[
+						0,
+						1,
+						1,
+						2
+					],
+					[
+						1,
+						1,
+						2,
+						2
+					]
+				],
+				"cols":
+				[
+					0.0,
+					0.5,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					0.948717948718,
+					1.0
+				]
+			}
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 448.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
