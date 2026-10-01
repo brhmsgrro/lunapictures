@@ -82,13 +82,15 @@ public function editarProductoConCategoria(Producto $pro, $id_categoria) {
     $cn = null;
 }
 
-	public function eliminarProducto ($cod) {
-       $cnx=new ConexionDB ();
-	     $cn=$cnx->getConexion ();
-       $res=$cn->prepare ("delete from productos where codpro=$cod");
-       $res->execute ();
-       $cn=null;
-    }
+		public function eliminarProducto($cod) {
+		$cnx = new ConexionDB();
+		$cn = $cnx->getConexion();
+		// ✅ SEGURO: Usa bindParam en lugar de interpolar la variable
+		$res = $cn->prepare("DELETE FROM productos WHERE codpro = :cod");
+		$res->bindParam(':cod', $cod, PDO::PARAM_INT);
+		$res->execute();
+		$cn = null;
+	}
 
 	public function ListarProductosCod ($cod) {
        $cnx=new ConexionDB ();
@@ -119,18 +121,25 @@ public function editarProductoConCategoria(Producto $pro, $id_categoria) {
        return $lista;
    }
 
-	public function ListarPedidosNum ($num) {
-       $cnx=new ConexionDB ();
-       $cn=$cnx->getConexion ();
-       $res=$cn->prepare ("select d.numpedido, d.codpro, p.descripcion, p.precio, d.can,d.color,d.talla from detallepedido d inner join productos p on d.codpro=p.codpro where numpedido=$num");
-       $res->execute ();
-       $cn=null;
-       foreach ($res as $row)
-        {
-           $lista []=$row;
-       }
-       return $lista;
-   }
+		public function ListarPedidosNum($num) {
+		$cnx = new ConexionDB();
+		$cn = $cnx->getConexion();
+		// ✅ SEGURO: Usa bindParam para el número de pedido
+		$sql = "SELECT d.numpedido, d.codpro, p.descripcion, p.precio, d.can, d.color, d.talla 
+				FROM detallepedido d 
+				INNER JOIN productos p ON d.codpro = p.codpro 
+				WHERE d.numpedido = :num";
+		$res = $cn->prepare($sql);
+		$res->bindParam(':num', $num, PDO::PARAM_INT);
+		$res->execute();
+		
+		$lista = array();
+		foreach ($res as $row) {
+			$lista[] = $row;
+		}
+		$cn = null;
+		return $lista;
+	}
 
 	public function ListarClientes () {
        $cnx=new ConexionDB ();
@@ -178,22 +187,41 @@ public function editarProductoConCategoria(Producto $pro, $id_categoria) {
 		return $lista;
 	}
 
-	public function GuardarVariante($codpro, $id_categoria, $color, $talla, $sku, $precio, $stock, $imagen) {
-		$cnx = new ConexionDB();
-		$cn = $cnx->getConexion();
-		$res = $cn->prepare("INSERT INTO variantes_producto (codpro, id_categoria, color, talla, sku, precio, stock, imagen_principal) VALUES (:cod, :cat, :color, :talla, :sku, :precio, :stock, :img)");
-		$res->bindParam(':cod', $codpro, PDO::PARAM_INT);
-		$res->bindParam(':cat', $id_categoria, PDO::PARAM_INT);
-		$res->bindParam(':color', $color, PDO::PARAM_STR);
-		$res->bindParam(':talla', $talla, PDO::PARAM_STR);
-		$res->bindParam(':sku', $sku, PDO::PARAM_STR);
-		$res->bindParam(':precio', $precio, PDO::PARAM_STR);
-		$res->bindParam(':stock', $stock, PDO::PARAM_INT);
-		$res->bindParam(':img', $imagen, PDO::PARAM_STR);
-		$resultado = $res->execute();
-		$cn = null;
-		return $resultado;
-	}
+	public function GuardarVariante($codpro, $id_categoria, $color, $talla, $sku, $precio, $stock, $imagen_principal) {
+    $cnx = new ConexionDB();
+    $cn = $cnx->getConexion();
+    
+    // Usamos INSERT ... ON DUPLICATE KEY UPDATE para evitar errores si ya existe
+    $sql = "INSERT INTO variantes_producto (codpro, id_categoria, color, talla, sku, precio, stock, imagen_principal, activo) 
+            VALUES (:cod, :cat, :color, :talla, :sku, :precio, :stock, :img, 1)
+            ON DUPLICATE KEY UPDATE 
+            id_categoria = :cat2, 
+            precio = :precio2, 
+            stock = :stock2, 
+            imagen_principal = :img2, 
+            activo = 1";
+    
+    $res = $cn->prepare($sql);
+    $res->bindParam(':cod', $codpro, PDO::PARAM_INT);
+    $res->bindParam(':cat', $id_categoria, PDO::PARAM_INT);
+    $res->bindParam(':color', $color, PDO::PARAM_STR);
+    $res->bindParam(':talla', $talla, PDO::PARAM_STR);
+    $res->bindParam(':sku', $sku, PDO::PARAM_STR);
+    $res->bindParam(':precio', $precio, PDO::PARAM_STR);
+    $res->bindParam(':stock', $stock, PDO::PARAM_INT);
+    $res->bindParam(':img', $imagen_principal, PDO::PARAM_STR);
+    
+    // Parámetros duplicados para el ON DUPLICATE KEY UPDATE
+    $res->bindParam(':cat2', $id_categoria, PDO::PARAM_INT);
+    $res->bindParam(':precio2', $precio, PDO::PARAM_STR);
+    $res->bindParam(':stock2', $stock, PDO::PARAM_INT);
+    $res->bindParam(':img2', $imagen_principal, PDO::PARAM_STR);
+    
+    $resultado = $res->execute();
+    $cn = null;
+    
+    return $resultado;
+}
 
 	public function ListarVariantesProducto($codpro) {
 		$cnx = new ConexionDB();
@@ -290,4 +318,86 @@ public function ListarImagenPrincipalProducto($codpro) {
     return $row ? $row['ruta_imagen'] : null;
 }
 
+	public function EliminarCliente($codcli) {
+		$cnx = new ConexionDB();
+		$cn = $cnx->getConexion();
+		
+		// Eliminamos el cliente usando su código (codcli)
+		$res = $cn->prepare("DELETE FROM clientes WHERE codcli = :codcli");
+		$res->bindParam(':codcli', $codcli, PDO::PARAM_INT);
+		$resultado = $res->execute();
+		
+		$cn = null;
+		return $resultado;
+	}
+
+		// =====================================================
+	//  NUEVOS MÉTODOS PARA GESTIÓN DE PEDIDOS Y DESPACHOS
+	// =====================================================
+
+	public function ObtenerInfoPedido($numpedido) {
+    $cnx = new ConexionDB();
+    $cn = $cnx->getConexion();
+    
+    // ✅ CORREGIDO: Solo uso las columnas que SÍ existen en tu tabla 'clientes'
+    $sql = "SELECT 
+                p.numpedido, 
+                p.estado, 
+                p.fecha,
+                c.nombre AS nombre_cliente, 
+                c.correo AS email_cliente, 
+                c.telefono, 
+                c.direccion
+            FROM pedido p 
+            INNER JOIN clientes c ON p.codcli = c.codcli 
+            WHERE p.numpedido = :num";
+            
+    $res = $cn->prepare($sql);
+    $res->bindParam(':num', $numpedido, PDO::PARAM_INT);
+    $res->execute();
+    
+    $resultado = $res->fetch(PDO::FETCH_ASSOC);
+    $cn = null;
+    
+    return $resultado;
 }
+
+
+	public function ActualizarEstadoPedido($numpedido, $nuevoEstado, $numeroRastreo = 'En proceso de asignación') {
+    $cnx = new ConexionDB();
+    $cn = $cnx->getConexion();
+    
+    $sql = "UPDATE pedido SET estado = :estado, numero_rastreo = :rastreo WHERE numpedido = :num";
+    $res = $cn->prepare($sql);
+    $res->bindParam(':estado', $nuevoEstado, PDO::PARAM_STR);
+    $res->bindParam(':rastreo', $numeroRastreo, PDO::PARAM_STR);
+    $res->bindParam(':num', $numpedido, PDO::PARAM_INT);
+    
+    $resultado = $res->execute();
+    $cn = null;
+    
+    return $resultado;
+}
+
+    // =====================================================
+    //  MÉTODO PARA ELIMINAR VARIANTES ANTES DE ACTUALIZAR
+    // =====================================================
+    public function EliminarVariantesPorProducto($codpro) {
+        $cnx = new ConexionDB();
+        $cn = $cnx->getConexion();
+        
+        // Eliminamos todas las variantes de este producto para evitar duplicados o tallas desmarcadas
+        $sql = "DELETE FROM variantes_producto WHERE codpro = :cod";
+        $res = $cn->prepare($sql);
+        $res->bindParam(':cod', $codpro, PDO::PARAM_INT);
+        $resultado = $res->execute();
+        
+        $cn = null;
+        return $resultado;
+    }
+
+} // <--- ESTA DEBE SER LA ÚLTIMA LÍNEA DEL ARCHIVO
+
+
+
+

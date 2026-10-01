@@ -22,7 +22,7 @@ switch ($op) {
     case 1:
         break;
 
-    case 2:
+        case 2:
         $codplpk = $_REQUEST['cod'] ?? 0;
         $lista = $objMetodos->ListarProductosCod($codplpk);
         
@@ -36,10 +36,26 @@ switch ($op) {
             $imagen_actual = $lista[6] ?? '';
             $id_categoria = $lista[7] ?? '';
             $envio = $lista[8] ?? '150';
+            
+            // ✅ CORRECCIÓN SEGURA: Obtener el color real directamente de la BD con protección anti-errores
+            try {
+                $cnx_temp = new ConexionDB();
+                $cn_temp = $cnx_temp->getConexion();
+                $sql_temp = "SELECT color FROM variantes_producto WHERE codpro = :cod LIMIT 1";
+                $res_temp = $cn_temp->prepare($sql_temp);
+                $res_temp->bindParam(':cod', $cod, PDO::PARAM_INT);
+                $res_temp->execute();
+                $row_temp = $res_temp->fetch(PDO::FETCH_ASSOC);
+                
+                if ($row_temp && !empty($row_temp['color'])) {
+                    $color_base = $row_temp['color']; // ¡Aquí atrapamos "Blanco", "Negro", etc.!
+                }
+                $cn_temp = null;
+            } catch (Exception $e) {
+                // Si algo falla, no rompemos la página, solo usamos el valor por defecto
+                $color_base = "Estándar";
+            }
         }
-        break;
-
-    default:
         break;
 }
 ?>
@@ -212,12 +228,80 @@ switch ($op) {
                                 <div id="previewNueva" class="mt-2"></div>
                             </div>
 
-                            <!-- Imágenes por Color -->
+                                                    
+                                                        <!-- Imágenes por Color -->
                             <div class="form-group">
                                 <label class="form-label-pro">Imágenes Adicionales por Color</label>
-                                <small class="text-muted d-block mb-2">Sube una imagen por cada color disponible (opcional)</small>
+                                <small class="text-muted d-block mb-2">Sube o verifica la imagen para cada color disponible</small>
                                 
-                                <div id="contenedorImagenesColores"></div>
+                                <div id="contenedorImagenesColores">
+                                    <?php 
+                                    // Si estamos editando (op=2) y tenemos un código de producto
+                                    if ($op == 2 && !empty($cod)) {
+                                        // Usamos $objMetodos (la variable correcta definida al inicio del archivo)
+                                        $imagenesColores = $objMetodos->ListarImagenesProducto($cod);
+                                        
+                                        if (!empty($imagenesColores)) {
+                                            foreach ($imagenesColores as $idx => $imgColor) {
+                                                $colorAsociado = !empty($imgColor['color_asociado']) ? $imgColor['color_asociado'] : 'Estándar';
+                                                $rutaImagen = $imgColor['ruta_imagen'];
+                                                
+                                                echo '<div class="card mb-2 imagen-color-item">';
+                                                echo '<div class="card-body p-2">';
+                                                echo '<div class="row align-items-center">';
+                                                
+                                                // 1. Selector de Color
+                                                echo '<div class="col-4">';
+                                                echo '<select name="colores_imagen[]" class="form-control form-control-sm" required>';
+                                                $coloresOpts = ['Estándar', 'Negro', 'Blanco', 'Rojo', 'Azul', 'Gris', 'Rosa', 'Verde'];
+                                                foreach ($coloresOpts as $cOpt) {
+                                                    $selected = ($colorAsociado === $cOpt) ? 'selected' : '';
+                                                    echo "<option value=\"$cOpt\" $selected>$cOpt</option>";
+                                                }
+                                                echo '</select>';
+                                                echo '</div>';
+                                                
+                                                // 2. Input de Archivo
+                                                echo '<div class="col-6">';
+                                                echo '<input type="file" name="imagenes_colores[]" class="form-control-file form-control-sm" accept="image/*" onchange="previewImagen(this, ' . $idx . ')">';
+                                                echo '</div>';
+                                                
+                                                // 3. Botón Eliminar
+                                                echo '<div class="col-2">';
+                                                echo '<button type="button" class="btn btn-danger btn-sm" onclick="this.closest(\'.imagen-color-item\').remove()">🗑️</button>';
+                                                echo '</div>';
+                                                
+                                                echo '</div>'; // Fin row
+                                                
+                                                // 4. Preview de la imagen existente
+                                                echo '<div class="mt-2">';
+                                                echo '<small class="text-muted">Imagen actual guardada:</small><br>';
+                                                echo '<img src="../images/' . htmlspecialchars($rutaImagen) . '" class="img-thumbnail" style="height: 60px; object-fit: cover;">';
+                                                echo '</div>';
+                                                
+                                                echo '</div>'; // Fin card-body
+                                                echo '</div>'; // Fin card
+                                            }
+                                        } else {
+                                            echo '<div class="alert alert-info py-2"><small>No hay imágenes de colores guardadas aún para este producto.</small></div>';
+                                        }
+                                    }
+                                    ?>
+                                </div>
+                                
+                                <button type="button" class="btn btn-outline-secondary btn-sm mt-2" onclick="agregarInputImagen()">
+                                    + Agregar imagen para otro color
+                                </button>
+                                
+                                <div id="previewImagenes" class="row mt-3"></div>
+                            </div>
+                                
+                                <button type="button" class="btn btn-outline-secondary btn-sm mt-2" onclick="agregarInputImagen()">
+                                    + Agregar imagen para otro color
+                                </button>
+                                
+                                <div id="previewImagenes" class="row mt-3"></div>
+                            </div>
                                 
                                 <button type="button" class="btn btn-outline-secondary btn-sm mt-2" onclick="agregarInputImagen()">
                                     + Agregar imagen para otro color

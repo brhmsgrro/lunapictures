@@ -97,49 +97,56 @@ try {
                 <div class="form-group-custom">
                     <label class="form-label-custom">Talla / Tamaño:</label>
                     <div class="size-selector">
-                        <?php
-                        $tallasDisponibles = ['Única']; 
-                        if (method_exists($objMetodos, 'ListarTallasPorProducto')) {
-                            $tallasEncontradas = $objMetodos->ListarTallasPorProducto($cod);
-                            if (!empty($tallasEncontradas)) {
-                                $tallasDisponibles = $tallasEncontradas;
-                            }
-                        }
-
-                        foreach ($tallasDisponibles as $index => $talla) {
-                            $checked = ($index === 0) ? 'checked' : ''; 
-                            echo '<label class="size-option">';
-                            echo '<input type="radio" name="talla" value="' . htmlspecialchars($talla) . '" ' . $checked . '>';
-                            echo '<span>' . htmlspecialchars($talla) . '</span>';
-                            echo '</label>';
-                        }
-                        ?>
-                    </div>
+    <?php
+    $tallasDisponibles = $objMetodos->ListarTallasPorProducto($cod);
+    
+    // Si hay tallas específicas (M, L, XL), las mostramos
+    if (!empty($tallasDisponibles)) {
+        // Filtramos: si hay más de una talla, NO mostramos "Única"
+        $mostrarUnica = (count($tallasDisponibles) == 1 && $tallasDisponibles[0] === 'Única');
+        
+        foreach ($tallasDisponibles as $index => $talla) {
+            // Saltamos "Única" si hay otras tallas
+            if (!$mostrarUnica && $talla === 'Única' && count($tallasDisponibles) > 1) {
+                continue;
+            }
+            
+            $checked = ($index === 0) ? 'checked' : ''; 
+            echo '<label class="size-option">';
+            echo '<input type="radio" name="talla" value="' . htmlspecialchars($talla) . '" ' . $checked . '>';
+            echo '<span>' . htmlspecialchars($talla) . '</span>';
+            echo '</label>';
+        }
+    } else {
+        // Si no hay tallas registradas, mostramos "Única" por defecto
+        echo '<label class="size-option">';
+        echo '<input type="radio" name="talla" value="Única" checked>';
+        echo '<span>Única</span>';
+        echo '</label>';
+    }
+    ?>
+</div>
                 </div>
                 
                 <?php if (in_array($id_categoria, [1, 2])): ?>
 <div class="form-group-custom">
     <label class="form-label-custom">Color:</label>
-    <select name="color" id="colorSelector" class="form-control-custom" 
-            onchange="cambiarImagenPorColor(<?php echo $cod; ?>, this.value)">
-        <option value="Estándar">Estándar</option>
-        <?php
-        // Obtener los colores disponibles SOLO para este producto
-        $coloresDisponibles = $objMetodos->ListarColoresDisponibles($cod);
-        
-        if (!empty($coloresDisponibles)) {
-            foreach ($coloresDisponibles as $color) {
-                $colorSafe = htmlspecialchars($color);
-                echo '<option value="' . $colorSafe . '">' . $colorSafe . '</option>';
-            }
-        } else {
-            // Si no hay colores registrados, mostrar los genéricos como respaldo
-            echo '<option value="Negro">Negro</option>';
-            echo '<option value="Blanco">Blanco</option>';
-            echo '<option value="Rojo">Rojo</option>';
+   <select name="color" id="colorSelector" class="form-control-custom" 
+        onchange="cambiarImagenPorColor(<?php echo $cod; ?>, this.value)">
+    <?php
+    $coloresDisponibles = $objMetodos->ListarColoresDisponibles($cod);
+    
+    if (!empty($coloresDisponibles)) {
+        // Mostrar colores reales (Blanco, Gris, Verde, etc.)
+        foreach ($coloresDisponibles as $color) {
+            echo '<option value="' . htmlspecialchars($color) . '">' . htmlspecialchars($color) . '</option>';
         }
-        ?>
-    </select>
+    } else {
+        // Si no hay colores en variantes, mostrar "Único"
+        echo '<option value="Único">Único</option>';
+    }
+    ?>
+</select>
 </div>
 <?php else: ?>
 <input type="hidden" name="color" value="Estándar">

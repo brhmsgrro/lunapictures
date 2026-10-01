@@ -114,19 +114,24 @@ public function ValidarUsuario ($correo, $pas) {
 	}
 
 	public function ListarTallasPorProducto($codpro) {
-		$cnx = new ConexionDB();
-		$cn = $cnx->getConexion();
-		// Buscamos SOLO las tallas que existen en la tabla variantes para este producto específico
-		$res = $cn->prepare("SELECT DISTINCT talla FROM variantes_producto WHERE codpro = :cod AND activo = 1 ORDER BY talla ASC");
-		$res->bindParam(':cod', $codpro, PDO::PARAM_INT);
-		$res->execute();
-		$cn = null;
-		$lista = array();
-		foreach ($res as $row) {
-			$lista[] = $row['talla'];
-		}
-		return $lista;
-	}
+    $cnx = new ConexionDB();
+    $cn = $cnx->getConexion();
+    
+    // Buscamos SOLO las tallas que existen en la tabla variantes para este producto específico
+    $sql = "SELECT DISTINCT talla FROM variantes_producto WHERE codpro = :cod AND activo = 1 ORDER BY FIELD(talla, 'S', 'M', 'L', 'XL', 'XXL'), talla ASC";
+    
+    $res = $cn->prepare($sql);
+    $res->bindParam(':cod', $codpro, PDO::PARAM_INT);
+    $res->execute();
+    
+    $lista = array();
+    foreach ($res as $row) {
+        $lista[] = $row['talla'];
+    }
+    
+    $cn = null;
+    return $lista;
+}
 
 	public function ListarImagenPrincipalProducto($codpro) {
 		$cnx = new ConexionDB();
@@ -140,20 +145,7 @@ public function ValidarUsuario ($correo, $pas) {
 		return $row ? $row['ruta_imagen'] : null;
 	}
 
-public function ListarColoresDisponibles($codpro) {
-    $cnx = new ConexionDB();
-    $cn = $cnx->getConexion();
-    // Obtenemos los colores únicos que tienen imagen para este producto
-    $res = $cn->prepare("SELECT DISTINCT color_asociado FROM producto_imagenes WHERE codpro = :cod AND color_asociado IS NOT NULL AND color_asociado != '' ORDER BY color_asociado ASC");
-    $res->bindParam(':cod', $codpro, PDO::PARAM_INT);
-    $res->execute();
-    $cn = null;
-    $lista = array();
-    foreach ($res as $row) {
-        $lista[] = $row['color_asociado'];
-    }
-    return $lista;
-}	
+	
 
 public function ListarImagenesPorColorYProducto($codpro, $color) {
     $cnx = new ConexionDB();
@@ -177,6 +169,46 @@ public function ListarImagenesPorColorYProducto($codpro, $color) {
     return $lista;
 }
 
+               public function ListarColoresDisponibles($codpro) {
+        $cnx = new ConexionDB();
+        $cn = $cnx->getConexion();
+        
+        // 1. Buscar colores en variantes_producto
+        $sql1 = "SELECT DISTINCT color FROM variantes_producto 
+                 WHERE codpro = :cod AND activo = 1 AND color IS NOT NULL AND color != ''";
+        $res1 = $cn->prepare($sql1);
+        $res1->bindParam(':cod', $codpro, PDO::PARAM_INT);
+        $res1->execute();
+        
+        // 2. Buscar colores en producto_imagenes
+        $sql2 = "SELECT DISTINCT color_asociado as color FROM producto_imagenes 
+                 WHERE codpro = :cod AND color_asociado IS NOT NULL AND color_asociado != ''";
+        $res2 = $cn->prepare($sql2);
+        $res2->bindParam(':cod', $codpro, PDO::PARAM_INT);
+        $res2->execute();
+        
+        // 3. Unir resultados de ambas consultas
+        $colores = array();
+        foreach ($res1 as $row) {
+            $color = trim($row['color']);
+            if (!in_array(strtolower($color), ['estándar', 'unico', 'único'])) {
+                $colores[] = $color;
+            }
+        }
+        foreach ($res2 as $row) {
+            $color = trim($row['color']);
+            if (!in_array(strtolower($color), ['estándar', 'unico', 'único'])) {
+                $colores[] = $color;
+            }
+        }
+        
+        // 4. Eliminar duplicados y ordenar
+        $colores = array_unique($colores);
+        sort($colores);
+        
+        $cn = null;
+        return $colores;
+    }
 
 } // <--- ¡ESTA LLAVE DEBE SER LA ÚLTIMA LÍNEA DEL ARCHIVO!
 
