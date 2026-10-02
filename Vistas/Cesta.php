@@ -86,6 +86,7 @@ $_SESSION['resumen_pedido'] = [
                 <!-- Lista de Productos -->
                 <div class="col-lg-8">
                    <?php
+                   
 foreach ($_SESSION['cesta'] as $id => $item) {
     $prod = (new MetodosDAO())->ListarProductosCod($id);
     if ($prod) {
@@ -105,31 +106,46 @@ foreach ($_SESSION['cesta'] as $id => $item) {
             }
         }
 ?>
-        <div class="card mb-3">
-            <div class="card-body d-flex align-items-center">
-                <!-- ✅ AQUÍ USAMOS LA IMAGEN DINÁMICA -->
-                <img src="../images/<?php echo htmlspecialchars($imagenMostrar); ?>" 
-                     class="img-fluid rounded" 
-                     style="width: 100px; height: 100px; object-fit: contain; border: 1px solid #eee;" 
-                     alt="<?php echo htmlspecialchars($prod[1]); ?>">
-                     
-                <div class="ms-3 flex-grow-1">
-                    <h5 class="mb-1"><?php echo htmlspecialchars($prod[1]); ?></h5>
-                    <p class="mb-1 text-muted small">
-                        Talla: <strong><?php echo htmlspecialchars($item->talla); ?></strong> | 
-                        Color: <strong><?php echo htmlspecialchars($item->color); ?></strong>
-                    </p>
-                    <p class="mb-0">Cantidad: <?php echo $item->cantidad; ?> x $<?php echo number_format($prod[2], 2); ?></p>
-                </div>
-                
-                <div class="text-end">
-                    <h5 class="text-primary mb-2">$<?php echo number_format($subtotal_linea, 2); ?></h5>
-                    <a href="../DAO/TiendaDAO.php?id=<?php echo $id; ?>&accion=eliminar&op=2" class="text-danger text-decoration-none small" onclick="return confirm('¿Eliminar este producto?')">
-                        <i class="fas fa-trash"></i> Eliminar
-                    </a>
-                </div>
+        <!-- DENTRO DEL FOREACH DE PRODUCTOS EN CESTA.PHP -->
+<div class="card mb-3 border-0 shadow-sm">
+    <div class="card-body d-flex align-items-center p-3">
+        <!-- Imagen del producto -->
+        <img src="../images/<?php echo htmlspecialchars($imagenMostrar); ?>" 
+             class="rounded" 
+             style="width: 90px; height: 90px; object-fit: cover; background: #f8f9fa;" 
+             alt="<?php echo htmlspecialchars($prod[1]); ?>">
+             
+        <div class="ms-3 flex-grow-1">
+            <h6 class="mb-1 fw-bold"><?php echo htmlspecialchars($prod[1]); ?></h6>
+            
+            <!-- ✅ ETIQUETAS VISUALES PARA TALLA Y COLOR -->
+            <div class="d-flex gap-2 mb-2">
+                <span class="badge bg-light text-dark border">
+                    <i class="fas fa-ruler-horizontal me-1"></i> Talla: <?php echo htmlspecialchars($item->talla ?? 'N/A'); ?>
+                </span>
+                <span class="badge bg-light text-dark border">
+                    <i class="fas fa-palette me-1"></i> Color: <?php echo htmlspecialchars($item->color ?? 'Estándar'); ?>
+                </span>
             </div>
+            
+            <p class="mb-0 small text-muted">
+                Cant: <?php echo (int)$item->cantidad; ?> x $<?php echo number_format($prod[2], 2); ?>
+            </p>
         </div>
+        
+        <div class="text-end ms-2">
+            <h6 class="text-primary fw-bold mb-2">$<?php echo number_format($subtotal_linea, 2); ?></h6>
+           
+
+<!-- En Cesta.php, dentro del foreach -->
+<a href="../DAO/TiendaDAO.php?clave=<?php echo urlencode($id); ?>&accion=eliminar&op=2" 
+   class="text-danger small text-decoration-none" 
+   onclick="return confirm('¿Eliminar esta variante específica?')">
+    <i class="fas fa-trash-alt"></i> Quitar
+</a>
+        </div>
+    </div>
+</div>
 <?php
     }
 }
@@ -174,7 +190,21 @@ foreach ($_SESSION['cesta'] as $id => $item) {
                             <div class="d-flex justify-content-between mb-4">
                                 <span class="fs-5 fw-bold">Total a Pagar:</span>
                                 <strong class="text-primary fs-3">$<?php echo number_format($total_final, 2); ?> MXN</strong>
-                            </div>
+                            </div> 
+
+                            <!-- ANTES DEL BOTÓN DE PAGO EN EL RESUMEN -->
+<div class="alert alert-light border mb-4 p-3">
+    <h6 class="fw-bold mb-2"><i class="fas fa-clipboard-check text-success"></i> Verifica tus variantes:</h6>
+    <ul class="list-unstyled mb-0 small">
+        <?php foreach ($_SESSION['cesta'] as $item): ?>
+            <li class="mb-1">
+                • <?php echo htmlspecialchars($item->cantidad); ?>x 
+                  <strong><?php echo htmlspecialchars($item->color ?? 'Estándar'); ?></strong> 
+                  (Talla: <?php echo htmlspecialchars($item->talla ?? 'N/A'); ?>)
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
                             
                             <button class="btn btn-primary w-100 mb-3 py-2 fw-bold" onclick="procederPago()">
                                 <i class="fas fa-lock"></i> Proceder al Pago Seguro
@@ -195,10 +225,29 @@ foreach ($_SESSION['cesta'] as $id => $item) {
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
     <script>
     function procederPago() {
-        window.location.href = 'Pago.php?total=<?php echo $total_final; ?>&estado=pagar';
+    const cesta = <?php echo json_encode($_SESSION['cesta']); ?>;
+    
+    // ✅ VALIDAR QUE TODOS LOS ITEMS TENGAN TALLA Y COLOR
+    let faltanDatos = false;
+    for (const key in cesta) {
+        if (!cesta[key].talla || !cesta[key].color) {
+            faltanDatos = true;
+            break;
+        }
     }
+    
+    if (faltanDatos) {
+        alert("⚠️ Hay productos en tu carrito sin talla o color definidos. Por favor regresa al catálogo y selecciona las variantes correctamente.");
+        return;
+    }
+    
+    // Si todo está bien, proceder
+    sessionStorage.setItem('cesta_checkout', JSON.stringify(cesta));
+    window.location.href = 'Pago.php?estado=pagar';
+}
     </script>
 
 <!-- Pega esto al final de Cesta.php, antes del </body> -->

@@ -5,8 +5,16 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 include '../DAO/MetodosDAO.php';
 
-$total = $_REQUEST['total'] ?? 0;
 $estado = $_REQUEST['estado'] ?? '';
+
+// ✅ OBTENER EL TOTAL DESDE LA SESIÓN (no desde la URL)
+$resumen = $_SESSION['resumen_pedido'] ?? null;
+$total = $resumen['total'] ?? 0;
+
+// Validación corregida
+if ($estado != 'pagar' || $total <= 0 || empty($_SESSION['cesta'])) {
+    // Mostrar pantalla de "Acceso No Válido"
+}
 
 // Verificar si el usuario está logueado de forma segura
 $is_logged_in = isset($_SESSION['acceso']) && $_SESSION['acceso'] === true;
@@ -167,26 +175,62 @@ $user_name = $_SESSION['nombre'] ?? 'Cliente';
             <?php endif; ?>
 
         <?php elseif ($estado == 'ok'): ?>
-            <!-- VISTA DE ÉXITO (TU LÓGICA ORIGINAL INTACTA) -->
-            <?php
-            if (isset($_SESSION['cesta']) && !empty($_SESSION['cesta'])) {
-                $codCli = $_SESSION['codCli'] ?? 1; 
-                $fecha = date('Y-m-d H:i:s');
-                
-                $objPed = new Pedido(0, $codCli, $fecha);
-                $objMet = new MetodosDAO();
-                $objMet->RegistrarPedido($objPed);
-                
-                $ultimoPed = $objMet->numeroPed();
-                $idPedido = $ultimoPed[0];
+    <?php
+    // Verificar que haya productos antes de intentar guardar
+    if (isset($_SESSION['cesta']) && !empty($_SESSION['cesta'])) {
+        try {
+            $codCli = $_SESSION['codCli'] ?? 1; 
+            $fecha = date('Y-m-d H:i:s');
+            
+            $objPed = new Pedido(0, $codCli, $fecha);
+            $objMet = new MetodosDAO();
+            
+            // Registrar pedido principal
+            $objMet->RegistrarPedido($objPed);
+            $ultimoPed = $objMet->numeroPed();
+            $idPedido = $ultimoPed[0];
 
-                foreach($_SESSION['cesta'] as $key => $value) {
-                    $objDetalle = new DetallePedido($idPedido, $key, $value->cantidad, $value->color ?? '', $value->talla ?? '');
-                    $objMet->RegistrarDetallePedido($objDetalle);
-                }
-                unset($_SESSION['cesta']);
+            // ✅ REGISTRAR CADA DETALLE CON TALLA Y COLOR
+            foreach($_SESSION['cesta'] as $key => $item) {
+                // Validar que tengamos los datos necesarios
+                $talla = isset($item->talla) ? $item->talla : 'N/A';
+                $color = isset($item->color) ? $item->color : 'Estándar';
+                
+                $objDetalle = new DetallePedido(
+                    $idPedido, 
+                    $key,           // ID Producto
+                    $item->cantidad,
+                    $color,         // ✅ Color explícito
+                    $talla          // ✅ Talla explícita
+                );
+                
+                $objMet->RegistrarDetallePedido($objDetalle);
             }
-            ?>
+            
+            // Solo vaciar carrito si todo salió bien
+            unset($_SESSION['cesta']);
+            unset($_SESSION['resumen_pedido']);
+            
+        } catch (Exception $e) {
+            // Si falla, redirigir a error en lugar de mostrar éxito falso
+            header('Location: Pago.php?error=db&detalle=' . urlencode($e->getMessage()));
+            exit;
+        }
+    } else {
+        // No hay productos en sesión, redirigir al carrito
+        header('Location: Cesta.php');
+        exit;
+    }
+    ?>
+    
+    <div class="success-box">
+        <i class="fas fa-check-circle success-icon"></i>
+        <h2 style="color: #28a745; font-weight: 800; margin-bottom: 15px;">¡Pago Exitoso!</h2>
+        <p style="color: #666; font-size: 1.1rem; margin-bottom: 30px;">
+            Gracias por tu compra. Hemos registrado tu pedido con todos los detalles de tallas y colores.
+        </p>
+        <a href="Catalogo.php" style="display: inline-block; background: #2c3e50; color: #fff; padding: 15px 40px; border-radius: 8px; text-decoration: none; font-weight: 700;">Seguir Comprando</a>
+    </div>
             <div class="success-box">
                 <i class="fas fa-check-circle success-icon"></i>
                 <h2 style="color: #28a745; font-weight: 800; margin-bottom: 15px;">¡Pago Exitoso!</h2>
